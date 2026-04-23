@@ -38,7 +38,6 @@
         overflow-x: hidden;
     }
 
-    /* Scanline overlay */
     body::before {
         content: '';
         position: fixed;
@@ -52,7 +51,6 @@
         z-index: 9999;
     }
 
-    /* ─── HEADER ─────────────────────────────────────────────────── */
     header {
         padding: 18px 28px;
         border-bottom: 1px solid var(--border);
@@ -88,12 +86,8 @@
     }
 
     @keyframes spin-glow {
-        0% {
-            filter: hue-rotate(0deg);
-        }
-        100% {
-            filter: hue-rotate(360deg);
-        }
+        0% { filter: hue-rotate(0deg); }
+        100% { filter: hue-rotate(360deg); }
     }
 
     .logo-text h1 {
@@ -119,7 +113,6 @@
         flex-wrap: wrap;
     }
 
-    /* Countdown */
     .countdown-wrap {
         display: flex;
         align-items: center;
@@ -146,7 +139,6 @@
         text-align: center;
     }
 
-    /* Status dot */
     .status-dot {
         width: 8px;
         height: 8px;
@@ -157,13 +149,8 @@
     }
 
     @keyframes blink {
-        0%,
-        100% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 0.2;
-        }
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.2; }
     }
 
     .status-dot.offline {
@@ -172,7 +159,6 @@
         animation: none;
     }
 
-    /* 24h badge in header */
     .badge-24h {
         display: inline-flex;
         align-items: center;
@@ -199,7 +185,6 @@
         animation: blink 1.8s ease-in-out infinite;
     }
 
-    /* Buttons */
     .btn {
         font-family: 'Share Tech Mono', monospace;
         font-size: 12px;
@@ -236,7 +221,6 @@
         background: rgba(0, 229, 192, 0.08);
     }
 
-    /* ─── TICKER TAPE ─────────────────────────────────────────────── */
     .ticker {
         background: rgba(0, 229, 192, 0.06);
         border-bottom: 1px solid var(--border);
@@ -252,12 +236,8 @@
     }
 
     @keyframes ticker-scroll {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(-50%);
-        }
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
     }
 
     .ticker-item {
@@ -272,7 +252,6 @@
         font-weight: bold;
     }
 
-    /* ─── SETUP MODAL ─────────────────────────────────────────────── */
     .modal-overlay {
         position: fixed;
         inset: 0;
@@ -284,9 +263,7 @@
         backdrop-filter: blur(4px);
     }
 
-    .modal-overlay.hidden {
-        display: none;
-    }
+    .modal-overlay.hidden { display: none; }
 
     .modal {
         background: var(--card);
@@ -296,7 +273,6 @@
         max-width: 540px;
         width: 92%;
         box-shadow: 0 0 40px rgba(0, 229, 192, 0.15);
-        position: relative;
     }
 
     .modal h2 {
@@ -319,10 +295,7 @@
         text-decoration: none;
         border-bottom: 1px dashed var(--accent);
     }
-
-    .modal p a:hover {
-        color: #00ffda;
-    }
+    .modal p a:hover { color: #00ffda; }
 
     .steps {
         background: rgba(0, 229, 192, 0.04);
@@ -336,13 +309,9 @@
         line-height: 2;
     }
 
-    .steps b {
-        color: var(--accent3);
-    }
+    .steps b { color: var(--accent3); }
 
-    .input-group {
-        margin-bottom: 20px;
-    }
+    .input-group { margin-bottom: 20px; }
 
     .input-group label {
         display: block;
@@ -386,14 +355,12 @@
         line-height: 1.7;
     }
 
-    /* ─── MAIN LAYOUT ─────────────────────────────────────────────── */
     .main {
         display: grid;
         grid-template-columns: 280px 1fr;
         min-height: calc(100vh - 130px);
     }
 
-    /* ─── SIDEBAR ─────────────────────────────────────────────────── */
     .sidebar {
         border-right: 1px solid var(--border);
         padding: 20px 16px;
@@ -421,12 +388,7 @@
         background: var(--border);
     }
 
-    /* Filter chips */
-    .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-    }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 
     .chip {
         font-family: 'Share Tech Mono', monospace;
@@ -447,7 +409,6 @@
         background: rgba(0, 229, 192, 0.08);
     }
 
-    /* Stats */
     .stat-row {
         display: flex;
         justify-content: space-between;
@@ -456,9 +417,7 @@
         border-bottom: 1px solid rgba(26, 58, 68, 0.5);
     }
 
-    .stat-row:last-child {
-        border-bottom: none;
-    }
+    .stat-row:last-child { border-bottom: none; }
 
     .stat-label {
         font-family: 'Share Tech Mono', monospace;
@@ -472,12 +431,7 @@
         color: var(--accent);
     }
 
-    /* Query list */
-    .query-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
+    .query-list { display: flex; flex-direction: column; gap: 8px; }
 
     .query-item {
         font-family: 'Share Tech Mono', monospace;
@@ -496,7 +450,6 @@
         color: var(--accent);
     }
 
-    /* ─── FEED ────────────────────────────────────────────────────── */
     .feed-area {
         padding: 20px 24px;
         display: flex;
@@ -526,7 +479,6 @@
         color: var(--muted);
     }
 
-    /* Sort controls */
     .sort-bar {
         display: flex;
         gap: 8px;
@@ -552,14 +504,12 @@
         color: var(--accent3);
     }
 
-    /* Video grid */
     #video-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 16px;
     }
 
-    /* Video card */
     .video-card {
         background: var(--card);
         border: 1px solid var(--border);
@@ -572,14 +522,8 @@
     }
 
     @keyframes card-in {
-        from {
-            opacity: 0;
-            transform: translateY(16px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     .video-card:hover {
@@ -593,7 +537,6 @@
         box-shadow: var(--glow);
     }
 
-    /* Card new badge */
     .badge-new {
         position: absolute;
         top: 10px;
@@ -609,7 +552,6 @@
         box-shadow: 0 0 10px rgba(255, 59, 92, 0.5);
     }
 
-    /* Thumbnail area */
     .thumb-wrap {
         position: relative;
         background: #000;
@@ -625,9 +567,7 @@
         transition: opacity 0.2s;
     }
 
-    .thumb-wrap:hover img {
-        opacity: 0.8;
-    }
+    .thumb-wrap:hover img { opacity: 0.8; }
 
     .play-overlay {
         position: absolute;
@@ -640,9 +580,7 @@
         transition: opacity 0.2s;
     }
 
-    .video-card:hover .play-overlay {
-        opacity: 1;
-    }
+    .video-card:hover .play-overlay { opacity: 1; }
 
     .play-icon {
         width: 52px;
@@ -664,7 +602,6 @@
         margin-left: 4px;
     }
 
-    /* iframe player */
     .player-wrap {
         position: relative;
         aspect-ratio: 16/9;
@@ -703,10 +640,7 @@
         color: var(--accent);
     }
 
-    /* Card body */
-    .card-body {
-        padding: 14px 14px 12px;
-    }
+    .card-body { padding: 14px 14px 12px; }
 
     .card-title {
         font-family: 'Rajdhani', sans-serif;
@@ -750,6 +684,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 4px;
+        margin-bottom: 8px;
     }
 
     .tag {
@@ -773,7 +708,28 @@
         color: var(--accent2);
     }
 
-    /* ─── SKELETON ────────────────────────────────────────────────── */
+    /* Description reveal on click */
+    .card-desc {
+        display: none;
+        margin-top: 8px;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 1.5;
+        white-space: pre-wrap;
+        word-break: break-word;
+        background: rgba(0, 229, 192, 0.03);
+        border: 1px solid rgba(0, 229, 192, 0.12);
+        padding: 10px 12px;
+        border-radius: 6px;
+        max-height: 120px;
+        overflow-y: auto;
+    }
+
+    .video-card.playing .card-desc {
+        display: block;
+    }
+
     .skeleton {
         background: var(--card);
         border: 1px solid var(--border);
@@ -789,12 +745,7 @@
         animation: shimmer 1.5s infinite;
     }
 
-    .skel-body {
-        padding: 14px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
+    .skel-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
 
     .skel-line {
         height: 12px;
@@ -804,20 +755,13 @@
         animation: shimmer 1.5s infinite;
     }
 
-    .skel-line.short {
-        width: 60%;
-    }
+    .skel-line.short { width: 60%; }
 
     @keyframes shimmer {
-        0% {
-            background-position: 200% 0;
-        }
-        100% {
-            background-position: -200% 0;
-        }
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
     }
 
-    /* ─── EMPTY / ERROR STATES ────────────────────────────────────── */
     .state-box {
         grid-column: 1 / -1;
         text-align: center;
@@ -828,9 +772,7 @@
         gap: 14px;
     }
 
-    .state-icon {
-        font-size: 48px;
-    }
+    .state-icon { font-size: 48px; }
 
     .state-title {
         font-family: 'Orbitron', monospace;
@@ -847,7 +789,6 @@
         line-height: 1.7;
     }
 
-    /* ─── LAST UPDATE BAR ─────────────────────────────────────────── */
     .update-bar {
         padding: 8px 28px;
         border-top: 1px solid var(--border);
@@ -862,737 +803,588 @@
         gap: 8px;
     }
 
-    .update-bar span {
-        color: var(--accent);
-    }
+    .update-bar span { color: var(--accent); }
 
-    /* ─── SCROLLBAR ───────────────────────────────────────────────── */
-    ::-webkit-scrollbar {
-        width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-        background: var(--bg);
-    }
-    ::-webkit-scrollbar-thumb {
-        background: var(--border);
-        border-radius: 3px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--accent);
-    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-    /* ─── RESPONSIVE ──────────────────────────────────────────────── */
     @media (max-width: 768px) {
-        .main {
-            grid-template-columns: 1fr;
-        }
-        .sidebar {
-            border-right: none;
-            border-bottom: 1px solid var(--border);
-        }
-        #video-grid {
-            grid-template-columns: 1fr;
-        }
-        .header-right {
-            gap: 8px;
-        }
+        .main { grid-template-columns: 1fr; }
+        .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+        #video-grid { grid-template-columns: 1fr; }
+        .header-right { gap: 8px; }
     }
 </style>
 </head>
 <body>
 
-    <!-- ─── SETUP MODAL ─────────────────────────────────────────────── -->
-    <div class="modal-overlay" id="setup-modal">
-        <div class="modal">
-            <h2>⚡ FUNDEDRADAR SETUP</h2>
-            <p>This scanner uses the free <a href="https://console.cloud.google.com" target="_blank">YouTube Data API v3</a> —
-                100% free forever with a Google account. You need your own API key (takes 5 minutes).</p>
-
-            <div class="steps">
-                <b>STEP 1 →</b> Go to <a href="https://console.cloud.google.com" target="_blank"
-                    style="color:var(--accent)">console.cloud.google.com</a><br>
-                <b>STEP 2 →</b> Create a new project (any name)<br>
-                <b>STEP 3 →</b> Enable "YouTube Data API v3" in Library<br>
-                <b>STEP 4 →</b> Go to Credentials → Create API Key<br>
-                <b>STEP 5 →</b> Paste it below and click START
-            </div>
-
-            <div class="quota-notice">
-                ⚠ FREE QUOTA: 10,000 units/day. Each search = 100 units.<br>
-                Default interval (30 min) uses ~4,800 units/day — safely within free tier.<br>
-                Do NOT set interval below 10 min or you may hit the daily limit.
-            </div>
-
-            <div class="input-group">
-                <label>YouTube Data API v3 Key</label>
-                <input type="password" id="api-key-input" placeholder="AIzaSy..." autocomplete="off" />
-            </div>
-
-            <div class="input-group">
-                <label>Refresh Interval</label>
-                <select id="interval-select">
-                    <option value="10">Every 10 minutes (high quota usage)</option>
-                    <option value="30" selected>Every 30 minutes (recommended)</option>
-                    <option value="60">Every 60 minutes (safest)</option>
-                    <option value="120">Every 2 hours (ultra-safe)</option>
-                </select>
-            </div>
-
-            <button class="btn btn-primary" id="start-btn" style="width:100%">⚡ START SCANNING</button>
-        </div>
+<div class="modal-overlay" id="setup-modal">
+  <div class="modal">
+    <h2>⚡ FUNDEDRADAR SETUP</h2>
+    <p>This scanner uses the free <a href="https://console.cloud.google.com" target="_blank">YouTube Data API v3</a> — 100% free forever. You need your own API key (takes 5 minutes).</p>
+    <div class="steps">
+      <b>STEP 1 →</b> Go to <a href="https://console.cloud.google.com" target="_blank" style="color:var(--accent)">console.cloud.google.com</a><br>
+      <b>STEP 2 →</b> Create a new project (any name)<br>
+      <b>STEP 3 →</b> Enable "YouTube Data API v3" in Library<br>
+      <b>STEP 4 →</b> Go to Credentials → Create API Key<br>
+      <b>STEP 5 →</b> Paste it below and click START
     </div>
-
-    <!-- ─── HEADER ─────────────────────────────────────────────────── -->
-    <header>
-        <div class="logo">
-            <div class="logo-icon">📡</div>
-            <div class="logo-text">
-                <h1>FUNDEDRADAR</h1>
-                <p>FREE FUNDED ACCOUNT SCANNER // LIVE FEED</p>
-            </div>
-        </div>
-
-        <div class="header-right">
-            <span class="badge-24h" title="Only showing videos published in the last 24 hours">LAST 24H ACTIVE</span>
-            <div class="countdown-wrap">
-                <span class="label">NEXT SCAN</span>
-                <span id="countdown">--:--</span>
-            </div>
-            <div class="status-dot" id="status-dot"></div>
-            <button class="btn btn-primary" id="refresh-btn" disabled>⟳ SCAN NOW</button>
-            <button class="btn btn-outline" id="settings-btn">⚙ KEY</button>
-        </div>
-    </header>
-
-    <!-- ─── TICKER TAPE ─────────────────────────────────────────────── -->
-    <div class="ticker">
-        <div class="ticker-inner" id="ticker-inner">
-            <!-- filled by JS -->
-        </div>
+    <div class="quota-notice">
+      ⚠ FREE QUOTA: 10,000 units/day. Each search = 100 units.<br>
+      Default interval (30 min) uses ~4,800 units/day — safely within free tier.<br>
+      Do NOT set interval below 10 min or you may hit the daily limit.
     </div>
-
-    <!-- ─── MAIN ───────────────────────────────────────────────────── -->
-    <div class="main">
-
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-
-            <div class="sidebar-section">
-                <h3>Filters</h3>
-                <div class="chips" id="filter-chips">
-                    <div class="chip active" data-filter="all">All (24h)</div>
-                    <div class="chip" data-filter="forex">Forex</div>
-                    <div class="chip" data-filter="prop firm">Prop Firm</div>
-                    <div class="chip" data-filter="indices">Indices</div>
-                    <div class="chip" data-filter="crypto">Crypto</div>
-                    <div class="chip" data-filter="challenge">Challenge</div>
-                    <div class="chip" data-filter="no deposit">No Deposit</div>
-                    <div class="chip" data-filter="giveaway">Giveaway</div>
-                </div>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>Statistics</h3>
-                <div class="stat-row"><span class="stat-label">Videos (last 24h)</span><span class="stat-value"
-                        id="stat-count">0</span></div>
-                <div class="stat-row"><span class="stat-label">Total Cached</span><span class="stat-value"
-                        id="stat-cached">0</span></div>
-                <div class="stat-row"><span class="stat-label">Scans Today</span><span class="stat-value"
-                        id="stat-scans">0</span></div>
-                <div class="stat-row"><span class="stat-label">API Units Used</span><span class="stat-value"
-                        id="stat-units">0</span></div>
-                <div class="stat-row"><span class="stat-label">Last Scan</span><span class="stat-value"
-                        id="stat-last">Never</span></div>
-                <div class="stat-row"><span class="stat-label">Interval</span><span class="stat-value"
-                        id="stat-interval">--</span></div>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>Search Queries</h3>
-                <div class="query-list" id="query-list">
-                    <!-- filled by JS -->
-                </div>
-            </div>
-
-            <div style="margin-top:auto">
-                <button class="btn btn-outline" style="width:100%;font-size:10px" id="reset-btn">✕ RESET ALL DATA</button>
-            </div>
-
-        </aside>
-
-        <!-- FEED -->
-        <main class="feed-area">
-            <div class="feed-header">
-                <div>
-                    <div class="feed-title">LIVE FUNDED ACCOUNT FEED — LAST 24 HOURS</div>
-                    <div class="result-count" id="result-count">Waiting for first scan...</div>
-                </div>
-                <div class="sort-bar">
-                    <button class="sort-btn active" data-sort="date">Latest</button>
-                    <button class="sort-btn" data-sort="views">Most Viewed</button>
-                </div>
-            </div>
-
-            <div id="video-grid">
-                <div class="state-box">
-                    <div class="state-icon">📡</div>
-                    <div class="state-title">RADAR STANDING BY</div>
-                    <div class="state-sub">Enter your YouTube API key to begin scanning for the latest free funded account
-                        opportunities.</div>
-                </div>
-            </div>
-        </main>
+    <div class="input-group">
+      <label>YouTube Data API v3 Key</label>
+      <input type="password" id="api-key-input" placeholder="AIzaSy..." autocomplete="off" />
     </div>
-
-    <!-- ─── FOOTER BAR ─────────────────────────────────────────────── -->
-    <div class="update-bar">
-        <div>FUNDEDRADAR — GitHub Pages Static Site — Free Forever</div>
-        <div>Last updated: <span id="last-update-time">—</span></div>
-        <div>Time window: <span>Last 24 hours only</span> &nbsp;|&nbsp; Daily quota used: <span id="quota-bar">0 / 10,000
-                units</span></div>
+    <div class="input-group">
+      <label>Refresh Interval</label>
+      <select id="interval-select">
+        <option value="10">Every 10 minutes (high quota usage)</option>
+        <option value="30" selected>Every 30 minutes (recommended)</option>
+        <option value="60">Every 60 minutes (safest)</option>
+        <option value="120">Every 2 hours (ultra-safe)</option>
+      </select>
     </div>
-
-    <script>
-        // ═══════════════════════════════════════════════════════════════
-        //  FUNDEDRADAR — Core Script (Last 24 Hours Filtered)
-        // ═══════════════════════════════════════════════════════════════
-
-        const SEARCH_QUERIES = [
-            'free funded account forex 2025',
-            'prop firm free challenge no deposit 2025',
-            'forex funded account giveaway 2025',
-            'free prop firm account instant funding',
-            'no evaluation funded trading account free'
-        ];
-
-        const PROP_FIRMS = ['ftmo', 'mff', 'my forex funds', 'e8', 'apex', 'topstep', 'funded next', 'the funded trader',
-            'ote', 'true forex funds', 'funding pips', 'audacity capital', '3commas', 'surge trader', 'bulenox', 'lux'
-        ];
-
-        const INSTRUMENTS = ['forex', 'us30', 'nas100', 'us500', 'dow jones', 'nasdaq', 's&p', 'gold', 'xauusd',
-            'crypto', 'bitcoin', 'eth', 'indices', 'commodities'
-        ];
-
-        const KEYWORDS_FREE = ['free', 'no deposit', 'giveaway', 'instant', 'no eval', 'no evaluation', 'zero cost',
-            'complimentary'
-        ];
-
-        // ─── STATE ────────────────────────────────────────────────────
-        let state = {
-            apiKey: '',
-            intervalMin: 30,
-            videos: [], // all cached videos (may include older ones until cleaned)
-            scansToday: 0,
-            unitsUsed: 0,
-            lastScan: null,
-            activeFilter: 'all',
-            sortBy: 'date',
-            currentQueryIndex: 0
-        };
-
-        let refreshTimer = null;
-        let countdownValue = 0;
-        let countdownInterval = null;
-
-        // ─── 24 HOUR WINDOW HELPER ────────────────────────────────────
-        function get24HoursAgo() {
-            const d = new Date();
-            d.setHours(d.getHours() - 24);
-            return d;
-        }
-
-        function get24HoursAgoISO() {
-            return get24HoursAgo().toISOString();
-        }
-
-        function isWithinLast24Hours(dateStr) {
-            if (!dateStr) return false;
-            const date = new Date(dateStr);
-            return date >= get24HoursAgo();
-        }
-
-        // ─── PERSIST / LOAD ───────────────────────────────────────────
-        function saveState() {
-            const saved = {
-                apiKey: state.apiKey,
-                intervalMin: state.intervalMin,
-                videos: state.videos.slice(0, 300), // keep up to 300 cached
-                scansToday: state.scansToday,
-                unitsUsed: state.unitsUsed,
-                lastScan: state.lastScan,
-                savedDate: new Date().toDateString()
-            };
-            localStorage.setItem('fundedradar_state', JSON.stringify(saved));
-        }
-
-        function loadState() {
-            try {
-                const raw = localStorage.getItem('fundedradar_state');
-                if (!raw) return;
-                const saved = JSON.parse(raw);
-                // Reset daily counters if new day
-                if (saved.savedDate !== new Date().toDateString()) {
-                    saved.scansToday = 0;
-                    saved.unitsUsed = 0;
-                }
-                // Clean up videos older than 24 hours from cache on load
-                if (saved.videos && Array.isArray(saved.videos)) {
-                    saved.videos = saved.videos.filter(v => isWithinLast24Hours(v.publishedAt));
-                }
-                Object.assign(state, saved);
-            } catch (e) {
-                console.warn('Failed to load saved state:', e);
-            }
-        }
-
-        // ─── YOUTUBE API ──────────────────────────────────────────────
-        async function searchYouTube(query) {
-            const params = new URLSearchParams({
-                part: 'snippet',
-                q: query,
-                type: 'video',
-                order: 'date',
-                maxResults: 15, // increased slightly since we filter by 24h
-                relevanceLanguage: 'en',
-                publishedAfter: get24HoursAgoISO(), // ← KEY: only fetch videos from last 24 hours
-                key: state.apiKey
-            });
-
-            const res = await fetch(`https://www.googleapis.com/youtube/v3/search?${params}`);
-            if (!res.ok) {
-                const err = await res.json();
-                throw new Error(err.error?.message || `API error ${res.status}`);
-            }
-            const data = await res.json();
-            return data.items || [];
-        }
-
-        async function runScan() {
-            if (!state.apiKey) return;
-            setStatus('scanning');
-            document.getElementById('refresh-btn').disabled = true;
-
-            try {
-                const query = SEARCH_QUERIES[state.currentQueryIndex % SEARCH_QUERIES.length];
-                state.currentQueryIndex++;
-
-                showSkeletons();
-                const items = await searchYouTube(query);
-
-                state.unitsUsed += 100;
-                state.scansToday++;
-                state.lastScan = new Date().toISOString();
-
-                // Merge deduplicated — only keep videos from last 24 hours
-                const existingIds = new Set(state.videos.map(v => v.id));
-                const newVideos = items
-                    .filter(item => item.id?.videoId && !existingIds.has(item.id.videoId))
-                    .map(parseVideo)
-                    .filter(v => isWithinLast24Hours(v.publishedAt)); // extra safety filter
-
-                // Mark new ones with a temporary badge
-                newVideos.forEach(v => v.isNew = true);
-                setTimeout(() => newVideos.forEach(v => v.isNew = false), 300000); // 5 min badge
-
-                // Prepend new videos, trim old ones, keep max 300
-                state.videos = [...newVideos, ...state.videos]
-                    .filter(v => isWithinLast24Hours(v.publishedAt)) // purge any stale
-                    .slice(0, 300);
-
-                saveState();
-                renderFeed();
-                updateStats();
-                updateTicker();
-                setStatus('online');
-
-                document.getElementById('last-update-time').textContent =
-                    new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Kathmandu', hour12: true }) + ' NPT';
-
-            } catch (err) {
-                setStatus('offline');
-                console.error('Scan error:', err);
-                showError(err.message);
-            }
-
-            document.getElementById('refresh-btn').disabled = false;
-        }
-
-        function parseVideo(item) {
-            const s = item.snippet || {};
-            const title = s.title || 'Untitled';
-            const titleLower = title.toLowerCase();
-            const descLower = (s.description || '').toLowerCase();
-            const combined = titleLower + ' ' + descLower;
-
-            // Extract tags
-            const tags = [];
-
-            // Prop firm tags
-            PROP_FIRMS.forEach(firm => {
-                if (combined.includes(firm)) tags.push({ label: firm.toUpperCase(), type: 'prop' });
-            });
-
-            // Instrument tags
-            INSTRUMENTS.forEach(instr => {
-                if (combined.includes(instr)) tags.push({ label: instr.toUpperCase(), type: 'instr' });
-            });
-
-            // Free/type tags
-            if (combined.includes('no deposit') || combined.includes('no eval'))
-                tags.push({ label: 'NO DEPOSIT', type: '' });
-            if (combined.includes('giveaway'))
-                tags.push({ label: 'GIVEAWAY', type: '' });
-            if (combined.includes('instant fund'))
-                tags.push({ label: 'INSTANT', type: '' });
-            if (combined.includes('challeng'))
-                tags.push({ label: 'CHALLENGE', type: '' });
-
-            // Deduplicate tags
-            const seen = new Set();
-            const uniqueTags = tags.filter(t => {
-                if (seen.has(t.label)) return false;
-                seen.add(t.label);
-                return true;
-            }).slice(0, 5);
-
-            return {
-                id: item.id.videoId,
-                title,
-                channel: s.channelTitle || 'Unknown',
-                publishedAt: s.publishedAt || '',
-                thumbnail: s.thumbnails?.medium?.url || s.thumbnails?.default?.url || '',
-                tags: uniqueTags,
-                isNew: false
-            };
-        }
-
-        // ─── RENDER ───────────────────────────────────────────────────
-        function getFilteredVideos() {
-            // First, ensure we only work with videos from the last 24 hours
-            let vids = state.videos.filter(v => isWithinLast24Hours(v.publishedAt));
-
-            if (state.activeFilter !== 'all') {
-                const f = state.activeFilter.toLowerCase();
-                vids = vids.filter(v => {
-                    const combined = (v.title + ' ' + v.channel).toLowerCase();
-                    const tagMatch = v.tags.some(t => t.label.toLowerCase().includes(f));
-                    return combined.includes(f) || tagMatch;
-                });
-            }
-
-            if (state.sortBy === 'views') {
-                // We don't have view counts from search; sort new first as fallback
-                vids.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
-            } else {
-                vids.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
-            }
-
-            return vids;
-        }
-
-        function renderFeed() {
-            const grid = document.getElementById('video-grid');
-            const vids = getFilteredVideos();
-
-            document.getElementById('result-count').textContent =
-                `${vids.length} videos from last 24 hours  •  ${state.videos.length} total in cache`;
-
-            if (vids.length === 0) {
-                grid.innerHTML = `
-              <div class="state-box">
-                <div class="state-icon">🔍</div>
-                <div class="state-title">NO RECENT RESULTS</div>
-                <div class="state-sub">No videos from the last 24 hours match the current filter. Try "All (24h)" or run a new scan.</div>
-              </div>`;
-                return;
-            }
-
-            grid.innerHTML = vids.map((v, i) => videoCardHTML(v, i)).join('');
-
-            // Attach click listeners
-            grid.querySelectorAll('.thumb-wrap').forEach(el => {
-                el.addEventListener('click', () => togglePlayer(el.dataset.id));
-            });
-
-            grid.querySelectorAll('.close-player').forEach(el => {
-                el.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    closePlayer(el.dataset.id);
-                });
-            });
-        }
-
-        function videoCardHTML(v, i) {
-            const age = v.publishedAt ? timeAgo(v.publishedAt) : '';
-            const tagsHTML = v.tags.map(t =>
-                `<span class="tag ${t.type}">${t.label}</span>`
-            ).join('');
-
-            return `
-          <div class="video-card ${v.isNew ? 'new' : ''}" style="animation-delay:${i * 40}ms" id="card-${v.id}">
-            ${v.isNew ? '<div class="badge-new">NEW</div>' : ''}
-            <div class="thumb-wrap" data-id="${v.id}">
-              <img src="${v.thumbnail}" alt="${escHtml(v.title)}" loading="lazy">
-              <div class="play-overlay"><div class="play-icon"></div></div>
-            </div>
-            <div class="player-wrap" id="player-${v.id}">
-              <iframe src="" title="${escHtml(v.title)}"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-              <div class="close-player" data-id="${v.id}" title="Close player">✕</div>
-            </div>
-            <div class="card-body">
-              <div class="card-title">${escHtml(v.title)}</div>
-              <div class="card-meta">
-                <span class="card-channel">${escHtml(v.channel)}</span>
-                ${age ? `<span class="card-date">${age}</span>` : ''}
-              </div>
-              <div class="card-tags">${tagsHTML}</div>
-            </div>
-          </div>`;
-        }
-
-        function togglePlayer(videoId) {
-            const playerWrap = document.getElementById(`player-${videoId}`);
-            const card = document.getElementById(`card-${videoId}`);
-            const thumbWrap = card.querySelector('.thumb-wrap');
-
-            if (playerWrap.style.display === 'block') {
-                closePlayer(videoId);
-                return;
-            }
-
-            // Close any other open player
-            document.querySelectorAll('.player-wrap').forEach(p => {
-                if (p.id !== `player-${videoId}` && p.style.display === 'block') {
-                    const id = p.id.replace('player-', '');
-                    closePlayer(id);
-                }
-            });
-
-            const iframe = playerWrap.querySelector('iframe');
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-            thumbWrap.style.display = 'none';
-            playerWrap.style.display = 'block';
-            card.classList.add('playing');
-        }
-
-        function closePlayer(videoId) {
-            const playerWrap = document.getElementById(`player-${videoId}`);
-            const card = document.getElementById(`card-${videoId}`);
-            if (!playerWrap) return;
-            const iframe = playerWrap.querySelector('iframe');
-            iframe.src = '';
-            playerWrap.style.display = 'none';
-            card.querySelector('.thumb-wrap').style.display = 'block';
-            card.classList.remove('playing');
-        }
-
-        function showSkeletons() {
-            const grid = document.getElementById('video-grid');
-            grid.innerHTML = Array(6).fill(0).map(() => `
-            <div class="skeleton">
-              <div class="skel-thumb"></div>
-              <div class="skel-body">
-                <div class="skel-line"></div>
-                <div class="skel-line short"></div>
-                <div class="skel-line short" style="width:40%"></div>
-              </div>
-            </div>`).join('');
-        }
-
-        function showError(msg) {
-            const grid = document.getElementById('video-grid');
-            grid.innerHTML = `
-            <div class="state-box">
-              <div class="state-icon">⚠️</div>
-              <div class="state-title">SCAN FAILED</div>
-              <div class="state-sub">${escHtml(msg)}<br><br>Check your API key or daily quota at console.cloud.google.com</div>
-            </div>`;
-        }
-
-        // ─── STATS / UI UPDATES ───────────────────────────────────────
-        function updateStats() {
-            const last24hCount = state.videos.filter(v => isWithinLast24Hours(v.publishedAt)).length;
-            document.getElementById('stat-count').textContent = last24hCount;
-            document.getElementById('stat-cached').textContent = state.videos.length;
-            document.getElementById('stat-scans').textContent = state.scansToday;
-            document.getElementById('stat-units').textContent = state.unitsUsed.toLocaleString();
-            document.getElementById('stat-last').textContent = state.lastScan ?
-                new Date(state.lastScan).toLocaleTimeString('en-US', { hour12: true, hour: '2-digit',
-                minute: '2-digit' }) :
-                'Never';
-            document.getElementById('stat-interval').textContent = `${state.intervalMin}m`;
-            document.getElementById('quota-bar').textContent =
-                `${state.unitsUsed.toLocaleString()} / 10,000 units`;
-        }
-
-        function setStatus(s) {
-            const dot = document.getElementById('status-dot');
-            dot.className = 'status-dot' + (s === 'offline' ? ' offline' : '');
-        }
-
-        function updateTicker() {
-            const recentVids = state.videos.filter(v => isWithinLast24Hours(v.publishedAt)).slice(0, 20);
-            if (recentVids.length === 0) return;
-
-            const html = [...recentVids, ...recentVids].map(v =>
-                `<span class="ticker-item">📡 <span>${escHtml(v.channel)}</span> — ${escHtml(v.title.substring(0, 55))}${v.title.length > 55 ? '…' : ''}</span>`
-            ).join('');
-
-            const ti = document.getElementById('ticker-inner');
-            ti.innerHTML = html;
-        }
-
-        function renderQueryList() {
-            const el = document.getElementById('query-list');
-            el.innerHTML = SEARCH_QUERIES.map((q, i) =>
-                `<div class="query-item ${i === (state.currentQueryIndex % SEARCH_QUERIES.length) ? 'active' : ''}"
-               title="${q}">${q}</div>`
-            ).join('');
-            document.getElementById('stat-interval').textContent = `${state.intervalMin}m`;
-        }
-
-        // ─── COUNTDOWN TIMER ──────────────────────────────────────────
-        function startCountdown(seconds) {
-            countdownValue = seconds;
-            clearInterval(countdownInterval);
-
-            const el = document.getElementById('countdown');
-
-            countdownInterval = setInterval(() => {
-                countdownValue--;
-                if (countdownValue <= 0) {
-                    clearInterval(countdownInterval);
-                    runScan().then(() => startCountdown(state.intervalMin * 60));
-                    return;
-                }
-                const m = String(Math.floor(countdownValue / 60)).padStart(2, '0');
-                const s = String(countdownValue % 60).padStart(2, '0');
-                el.textContent = `${m}:${s}`;
-            }, 1000);
-
-            const m = String(Math.floor(countdownValue / 60)).padStart(2, '0');
-            const s = String(countdownValue % 60).padStart(2, '0');
-            el.textContent = `${m}:${s}`;
-        }
-
-        // ─── HELPERS ──────────────────────────────────────────────────
-        function escHtml(str) {
-            return String(str)
-                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        }
-
-        function timeAgo(dateStr) {
-            const diff = Date.now() - new Date(dateStr).getTime();
-            const min = Math.floor(diff / 60000);
-            if (min < 60) return `${min}m ago`;
-            const hr = Math.floor(min / 60);
-            if (hr < 24) return `${hr}h ago`;
-            const d = Math.floor(hr / 24);
-            return `${d}d ago`;
-        }
-
-        // ─── INIT ─────────────────────────────────────────────────────
-        function init() {
-            loadState();
-
-            // Default ticker text
-            const ti = document.getElementById('ticker-inner');
-            ti.innerHTML = Array(2).fill(0).map(() =>
-                SEARCH_QUERIES.map(q =>
-                    `<span class="ticker-item">🔍 Searching last 24h: <span>${q}</span></span>`
-                ).join('')
-            ).join('');
-
-            renderQueryList();
-            updateStats();
-
-            // If saved API key → skip modal
-            if (state.apiKey) {
-                document.getElementById('setup-modal').classList.add('hidden');
-                document.getElementById('refresh-btn').disabled = false;
-                document.getElementById('stat-interval').textContent = `${state.intervalMin}m`;
-
-                if (state.videos.length > 0) {
-                    renderFeed();
-                    updateTicker();
-                }
-
-                // Resume countdown from last scan
-                let elapsed = state.lastScan ?
-                    Math.floor((Date.now() - new Date(state.lastScan)) / 1000) :
-                    state.intervalMin * 60;
-                let remaining = Math.max(10, state.intervalMin * 60 - elapsed);
-
-                if (elapsed >= state.intervalMin * 60) {
-                    runScan().then(() => startCountdown(state.intervalMin * 60));
-                } else {
-                    startCountdown(remaining);
-                }
-                setStatus('online');
-            }
-
-            // ─── EVENT LISTENERS ──────────────────────────────────────
-
-            // Start button
-            document.getElementById('start-btn').addEventListener('click', () => {
-                const key = document.getElementById('api-key-input').value.trim();
-                if (!key) { alert('Please enter your YouTube API key'); return; }
-                state.apiKey = key;
-                state.intervalMin = parseInt(document.getElementById('interval-select').value);
-                saveState();
-                document.getElementById('setup-modal').classList.add('hidden');
-                document.getElementById('refresh-btn').disabled = false;
-                document.getElementById('stat-interval').textContent = `${state.intervalMin}m`;
-                setStatus('online');
-                runScan().then(() => startCountdown(state.intervalMin * 60));
-            });
-
-            // Manual refresh
-            document.getElementById('refresh-btn').addEventListener('click', () => {
-                clearInterval(countdownInterval);
-                runScan().then(() => startCountdown(state.intervalMin * 60));
-            });
-
-            // Settings / change key
-            document.getElementById('settings-btn').addEventListener('click', () => {
-                document.getElementById('api-key-input').value = state.apiKey;
-                document.getElementById('interval-select').value = state.intervalMin;
-                document.getElementById('setup-modal').classList.remove('hidden');
-            });
-
-            // Filter chips
-            document.getElementById('filter-chips').addEventListener('click', e => {
-                const chip = e.target.closest('.chip');
-                if (!chip) return;
-                document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-                chip.classList.add('active');
-                state.activeFilter = chip.dataset.filter;
-                renderFeed();
-            });
-
-            // Sort buttons
-            document.querySelectorAll('.sort-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove(
-                        'active'));
-                    btn.classList.add('active');
-                    state.sortBy = btn.dataset.sort;
-                    renderFeed();
-                });
-            });
-
-            // Reset
-            document.getElementById('reset-btn').addEventListener('click', () => {
-                if (!confirm('Reset all cached videos and stats? This cannot be undone.')) return;
-                localStorage.removeItem('fundedradar_state');
-                location.reload();
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
+    <button class="btn btn-primary" id="start-btn" style="width:100%">⚡ START SCANNING</button>
+  </div>
+</div>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">📡</div>
+    <div class="logo-text">
+      <h1>FUNDEDRADAR</h1>
+      <p>FREE FUNDED ACCOUNT SCANNER // LIVE FEED</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="badge-24h" title="Only showing videos published in the last 24 hours">LAST 24H ACTIVE</span>
+    <div class="countdown-wrap">
+      <span class="label">NEXT SCAN</span>
+      <span id="countdown">--:--</span>
+    </div>
+    <div class="status-dot" id="status-dot"></div>
+    <button class="btn btn-primary" id="refresh-btn" disabled>⟳ SCAN NOW</button>
+    <button class="btn btn-outline" id="settings-btn">⚙ KEY</button>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-inner" id="ticker-inner"></div>
+</div>
+
+<div class="main">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <h3>Filters</h3>
+      <div class="chips" id="filter-chips">
+        <div class="chip active" data-filter="all">All (24h)</div>
+        <div class="chip" data-filter="forex">Forex</div>
+        <div class="chip" data-filter="prop firm">Prop Firm</div>
+        <div class="chip" data-filter="indices">Indices</div>
+        <div class="chip" data-filter="crypto">Crypto</div>
+        <div class="chip" data-filter="challenge">Challenge</div>
+        <div class="chip" data-filter="no deposit">No Deposit</div>
+        <div class="chip" data-filter="giveaway">Giveaway</div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <h3>Statistics</h3>
+      <div class="stat-row"><span class="stat-label">Videos (last 24h)</span><span class="stat-value" id="stat-count">0</span></div>
+      <div class="stat-row"><span class="stat-label">Total Cached</span><span class="stat-value" id="stat-cached">0</span></div>
+      <div class="stat-row"><span class="stat-label">Scans Today</span><span class="stat-value" id="stat-scans">0</span></div>
+      <div class="stat-row"><span class="stat-label">API Units Used</span><span class="stat-value" id="stat-units">0</span></div>
+      <div class="stat-row"><span class="stat-label">Last Scan</span><span class="stat-value" id="stat-last">Never</span></div>
+      <div class="stat-row"><span class="stat-label">Interval</span><span class="stat-value" id="stat-interval">--</span></div>
+    </div>
+    <div class="sidebar-section">
+      <h3>Search Queries</h3>
+      <div class="query-list" id="query-list"></div>
+    </div>
+    <div style="margin-top:auto">
+      <button class="btn btn-outline" style="width:100%;font-size:10px" id="reset-btn">✕ RESET ALL DATA</button>
+    </div>
+  </aside>
+
+  <main class="feed-area">
+    <div class="feed-header">
+      <div>
+        <div class="feed-title">LIVE FUNDED ACCOUNT FEED — LAST 24 HOURS</div>
+        <div class="result-count" id="result-count">Waiting for first scan...</div>
+      </div>
+      <div class="sort-bar">
+        <button class="sort-btn active" data-sort="date">Latest</button>
+        <button class="sort-btn" data-sort="views">Most Viewed</button>
+      </div>
+    </div>
+    <div id="video-grid">
+      <div class="state-box">
+        <div class="state-icon">📡</div>
+        <div class="state-title">RADAR STANDING BY</div>
+        <div class="state-sub">Enter your YouTube API key to begin scanning for the latest free funded account opportunities.</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="update-bar">
+  <div>FUNDEDRADAR — GitHub Pages Static Site — Free Forever</div>
+  <div>Last updated: <span id="last-update-time">—</span></div>
+  <div>Time window: <span>Last 24 hours only</span> &nbsp;|&nbsp; Daily quota used: <span id="quota-bar">0 / 10,000 units</span></div>
+</div>
+
+<script>
+const SEARCH_QUERIES = [
+  'free funded account forex 2025',
+  'prop firm free challenge no deposit 2025',
+  'forex funded account giveaway 2025',
+  'free prop firm account instant funding',
+  'no evaluation funded trading account free'
+];
+
+const PROP_FIRMS = ['ftmo','mff','my forex funds','e8','apex','topstep','funded next','the funded trader',
+  'ote','true forex funds','funding pips','audacity capital','3commas','surge trader','bulenox','lux'];
+const INSTRUMENTS = ['forex','us30','nas100','us500','dow jones','nasdaq','s&p','gold','xauusd',
+  'crypto','bitcoin','eth','indices','commodities'];
+
+let state = {
+  apiKey: '',
+  intervalMin: 30,
+  videos: [],
+  scansToday: 0,
+  unitsUsed: 0,
+  lastScan: null,
+  activeFilter: 'all',
+  sortBy: 'date',
+  currentQueryIndex: 0
+};
+
+let countdownValue = 0;
+let countdownInterval = null;
+
+function get24HoursAgo() {
+  const d = new Date();
+  d.setHours(d.getHours() - 24);
+  return d;
+}
+function get24HoursAgoISO() { return get24HoursAgo().toISOString(); }
+function isWithinLast24Hours(dateStr) {
+  if (!dateStr) return false;
+  return new Date(dateStr) >= get24HoursAgo();
+}
+
+function saveState() {
+  const saved = {
+    apiKey: state.apiKey,
+    intervalMin: state.intervalMin,
+    videos: state.videos.slice(0, 300),
+    scansToday: state.scansToday,
+    unitsUsed: state.unitsUsed,
+    lastScan: state.lastScan,
+    savedDate: new Date().toDateString()
+  };
+  localStorage.setItem('fundedradar_state', JSON.stringify(saved));
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem('fundedradar_state');
+    if (!raw) return;
+    const saved = JSON.parse(raw);
+    if (saved.savedDate !== new Date().toDateString()) {
+      saved.scansToday = 0;
+      saved.unitsUsed = 0;
+    }
+    if (saved.videos && Array.isArray(saved.videos)) {
+      saved.videos = saved.videos.filter(v => isWithinLast24Hours(v.publishedAt));
+    }
+    Object.assign(state, saved);
+  } catch(e) {}
+}
+
+async function searchYouTube(query) {
+  const params = new URLSearchParams({
+    part: 'snippet',
+    q: query,
+    type: 'video',
+    order: 'date',
+    maxResults: 15,
+    relevanceLanguage: 'en',
+    publishedAfter: get24HoursAgoISO(),
+    key: state.apiKey
+  });
+  const res = await fetch(`https://www.googleapis.com/youtube/v3/search?${params}`);
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.error?.message || `API error ${res.status}`);
+  }
+  const data = await res.json();
+  return data.items || [];
+}
+
+function parseVideo(item) {
+  const s = item.snippet || {};
+  const title = s.title || 'Untitled';
+  const titleLower = title.toLowerCase();
+  const descLower = (s.description || '').toLowerCase();
+  const combined = titleLower + ' ' + descLower;
+  const tags = [];
+
+  PROP_FIRMS.forEach(firm => {
+    if (combined.includes(firm)) tags.push({ label: firm.toUpperCase(), type: 'prop' });
+  });
+  INSTRUMENTS.forEach(instr => {
+    if (combined.includes(instr)) tags.push({ label: instr.toUpperCase(), type: 'instr' });
+  });
+  if (combined.includes('no deposit') || combined.includes('no eval'))
+    tags.push({ label: 'NO DEPOSIT', type: '' });
+  if (combined.includes('giveaway'))
+    tags.push({ label: 'GIVEAWAY', type: '' });
+  if (combined.includes('instant fund'))
+    tags.push({ label: 'INSTANT', type: '' });
+  if (combined.includes('challeng'))
+    tags.push({ label: 'CHALLENGE', type: '' });
+
+  const seen = new Set();
+  const uniqueTags = tags.filter(t => {
+    if (seen.has(t.label)) return false;
+    seen.add(t.label); return true;
+  }).slice(0, 5);
+
+  return {
+    id: item.id.videoId,
+    title,
+    channel: s.channelTitle || 'Unknown',
+    publishedAt: s.publishedAt || '',
+    thumbnail: s.thumbnails?.medium?.url || s.thumbnails?.default?.url || '',
+    description: s.description || '',
+    tags: uniqueTags,
+    isNew: false
+  };
+}
+
+async function runScan() {
+  if (!state.apiKey) return;
+  setStatus('scanning');
+  document.getElementById('refresh-btn').disabled = true;
+  try {
+    const query = SEARCH_QUERIES[state.currentQueryIndex % SEARCH_QUERIES.length];
+    state.currentQueryIndex++;
+    showSkeletons();
+    const items = await searchYouTube(query);
+    state.unitsUsed += 100;
+    state.scansToday++;
+    state.lastScan = new Date().toISOString();
+
+    const existingIds = new Set(state.videos.map(v => v.id));
+    const newVideos = items
+      .filter(item => item.id?.videoId && !existingIds.has(item.id.videoId))
+      .map(parseVideo)
+      .filter(v => isWithinLast24Hours(v.publishedAt));
+
+    newVideos.forEach(v => v.isNew = true);
+    setTimeout(() => newVideos.forEach(v => v.isNew = false), 300000);
+
+    state.videos = [...newVideos, ...state.videos]
+      .filter(v => isWithinLast24Hours(v.publishedAt))
+      .slice(0, 300);
+
+    saveState();
+    renderFeed();
+    updateStats();
+    updateTicker();
+    setStatus('online');
+    document.getElementById('last-update-time').textContent =
+      new Date().toLocaleTimeString('en-US', {timeZone:'Asia/Kathmandu', hour12:true}) + ' NPT';
+  } catch(err) {
+    setStatus('offline');
+    console.error('Scan error:', err);
+    showError(err.message);
+  }
+  document.getElementById('refresh-btn').disabled = false;
+}
+
+function getFilteredVideos() {
+  let vids = state.videos.filter(v => isWithinLast24Hours(v.publishedAt));
+  if (state.activeFilter !== 'all') {
+    const f = state.activeFilter.toLowerCase();
+    vids = vids.filter(v => {
+      const combined = (v.title + ' ' + v.channel).toLowerCase();
+      const tagMatch = v.tags.some(t => t.label.toLowerCase().includes(f));
+      return combined.includes(f) || tagMatch;
+    });
+  }
+  if (state.sortBy === 'views') {
+    vids.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+  } else {
+    vids.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+  }
+  return vids;
+}
+
+function renderFeed() {
+  const grid = document.getElementById('video-grid');
+  const vids = getFilteredVideos();
+  document.getElementById('result-count').textContent =
+    `${vids.length} videos from last 24 hours  •  ${state.videos.length} total in cache`;
+
+  if (vids.length === 0) {
+    grid.innerHTML = `
+      <div class="state-box">
+        <div class="state-icon">🔍</div>
+        <div class="state-title">NO RECENT RESULTS</div>
+        <div class="state-sub">No videos from the last 24 hours match the current filter. Try "All (24h)" or run a new scan.</div>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = vids.map((v, i) => videoCardHTML(v, i)).join('');
+
+  grid.querySelectorAll('.thumb-wrap').forEach(el => {
+    el.addEventListener('click', () => togglePlayer(el.dataset.id));
+  });
+  grid.querySelectorAll('.close-player').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closePlayer(el.dataset.id);
+    });
+  });
+}
+
+function videoCardHTML(v, i) {
+  const age = v.publishedAt ? timeAgo(v.publishedAt) : '';
+  const tagsHTML = v.tags.map(t =>
+    `<span class="tag ${t.type}">${t.label}</span>`
+  ).join('');
+
+  return `
+  <div class="video-card ${v.isNew ? 'new' : ''}" style="animation-delay:${i*40}ms" id="card-${v.id}">
+    ${v.isNew ? '<div class="badge-new">NEW</div>' : ''}
+    <div class="thumb-wrap" data-id="${v.id}">
+      <img src="${v.thumbnail}" alt="${escHtml(v.title)}" loading="lazy">
+      <div class="play-overlay"><div class="play-icon"></div></div>
+    </div>
+    <div class="player-wrap" id="player-${v.id}">
+      <iframe src="" title="${escHtml(v.title)}"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+      <div class="close-player" data-id="${v.id}" title="Close player">✕</div>
+    </div>
+    <div class="card-body">
+      <div class="card-title">${escHtml(v.title)}</div>
+      <div class="card-meta">
+        <span class="card-channel">${escHtml(v.channel)}</span>
+        ${age ? `<span class="card-date">${age}</span>` : ''}
+      </div>
+      <div class="card-tags">${tagsHTML}</div>
+      <div class="card-desc">${escHtml(v.description) || 'No description available.'}</div>
+    </div>
+  </div>`;
+}
+
+function togglePlayer(videoId) {
+  const playerWrap = document.getElementById(`player-${videoId}`);
+  const card = document.getElementById(`card-${videoId}`);
+  const thumbWrap = card.querySelector('.thumb-wrap');
+  if (playerWrap.style.display === 'block') {
+    closePlayer(videoId);
+    return;
+  }
+  document.querySelectorAll('.player-wrap').forEach(p => {
+    if (p.id !== `player-${videoId}` && p.style.display === 'block') {
+      const id = p.id.replace('player-', '');
+      closePlayer(id);
+    }
+  });
+  const iframe = playerWrap.querySelector('iframe');
+  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  thumbWrap.style.display = 'none';
+  playerWrap.style.display = 'block';
+  card.classList.add('playing');
+}
+
+function closePlayer(videoId) {
+  const playerWrap = document.getElementById(`player-${videoId}`);
+  const card = document.getElementById(`card-${videoId}`);
+  if (!playerWrap) return;
+  const iframe = playerWrap.querySelector('iframe');
+  iframe.src = '';
+  playerWrap.style.display = 'none';
+  card.querySelector('.thumb-wrap').style.display = 'block';
+  card.classList.remove('playing');
+}
+
+function showSkeletons() {
+  document.getElementById('video-grid').innerHTML = Array(6).fill(0).map(() => `
+    <div class="skeleton">
+      <div class="skel-thumb"></div>
+      <div class="skel-body">
+        <div class="skel-line"></div>
+        <div class="skel-line short"></div>
+        <div class="skel-line short" style="width:40%"></div>
+      </div>
+    </div>`).join('');
+}
+
+function showError(msg) {
+  document.getElementById('video-grid').innerHTML = `
+    <div class="state-box">
+      <div class="state-icon">⚠️</div>
+      <div class="state-title">SCAN FAILED</div>
+      <div class="state-sub">${escHtml(msg)}<br><br>Check your API key or daily quota at console.cloud.google.com</div>
+    </div>`;
+}
+
+function updateStats() {
+  const last24hCount = state.videos.filter(v => isWithinLast24Hours(v.publishedAt)).length;
+  document.getElementById('stat-count').textContent = last24hCount;
+  document.getElementById('stat-cached').textContent = state.videos.length;
+  document.getElementById('stat-scans').textContent = state.scansToday;
+  document.getElementById('stat-units').textContent = state.unitsUsed.toLocaleString();
+  document.getElementById('stat-last').textContent = state.lastScan
+    ? new Date(state.lastScan).toLocaleTimeString('en-US', {hour12: true, hour:'2-digit', minute:'2-digit'})
+    : 'Never';
+  document.getElementById('stat-interval').textContent = `${state.intervalMin}m`;
+  document.getElementById('quota-bar').textContent = `${state.unitsUsed.toLocaleString()} / 10,000 units`;
+}
+
+function setStatus(s) {
+  const dot = document.getElementById('status-dot');
+  dot.className = 'status-dot' + (s === 'offline' ? ' offline' : '');
+}
+
+function updateTicker() {
+  const recentVids = state.videos.filter(v => isWithinLast24Hours(v.publishedAt)).slice(0, 20);
+  if (recentVids.length === 0) return;
+  const html = [...recentVids, ...recentVids].map(v =>
+    `<span class="ticker-item">📡 <span>${escHtml(v.channel)}</span> — ${escHtml(v.title.substring(0,55))}${v.title.length>55?'…':''}</span>`
+  ).join('');
+  document.getElementById('ticker-inner').innerHTML = html;
+}
+
+function renderQueryList() {
+  const el = document.getElementById('query-list');
+  el.innerHTML = SEARCH_QUERIES.map((q,i) =>
+    `<div class="query-item ${i === (state.currentQueryIndex % SEARCH_QUERIES.length) ? 'active' : ''}" title="${q}">${q}</div>`
+  ).join('');
+}
+
+function startCountdown(seconds) {
+  countdownValue = seconds;
+  clearInterval(countdownInterval);
+  const el = document.getElementById('countdown');
+  countdownInterval = setInterval(() => {
+    countdownValue--;
+    if (countdownValue <= 0) {
+      clearInterval(countdownInterval);
+      runScan().then(() => startCountdown(state.intervalMin * 60));
+      return;
+    }
+    const m = String(Math.floor(countdownValue / 60)).padStart(2, '0');
+    const s = String(countdownValue % 60).padStart(2, '0');
+    el.textContent = `${m}:${s}`;
+  }, 1000);
+  const m = String(Math.floor(countdownValue / 60)).padStart(2, '0');
+  const s = String(countdownValue % 60).padStart(2, '0');
+  el.textContent = `${m}:${s}`;
+}
+
+function escHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function timeAgo(dateStr) {
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const min = Math.floor(diff / 60000);
+  if (min < 60) return `${min}m ago`;
+  const hr = Math.floor(min / 60);
+  if (hr < 24) return `${hr}h ago`;
+  const d = Math.floor(hr / 24);
+  return `${d}d ago`;
+}
+
+function init() {
+  loadState();
+  document.getElementById('ticker-inner').innerHTML = Array(2).fill(0).map(() =>
+    SEARCH_QUERIES.map(q => `<span class="ticker-item">🔍 Searching last 24h: <span>${q}</span></span>`).join('')
+  ).join('');
+  renderQueryList();
+  updateStats();
+
+  if (state.apiKey) {
+    document.getElementById('setup-modal').classList.add('hidden');
+    document.getElementById('refresh-btn').disabled = false;
+    document.getElementById('stat-interval').textContent = `${state.intervalMin}m`;
+    if (state.videos.length > 0) {
+      renderFeed();
+      updateTicker();
+    }
+    let elapsed = state.lastScan
+      ? Math.floor((Date.now() - new Date(state.lastScan)) / 1000)
+      : state.intervalMin * 60;
+    let remaining = Math.max(10, state.intervalMin * 60 - elapsed);
+    if (elapsed >= state.intervalMin * 60) {
+      runScan().then(() => startCountdown(state.intervalMin * 60));
+    } else {
+      startCountdown(remaining);
+    }
+    setStatus('online');
+  }
+
+  document.getElementById('start-btn').addEventListener('click', () => {
+    const key = document.getElementById('api-key-input').value.trim();
+    if (!key) { alert('Please enter your YouTube API key'); return; }
+    state.apiKey = key;
+    state.intervalMin = parseInt(document.getElementById('interval-select').value);
+    saveState();
+    document.getElementById('setup-modal').classList.add('hidden');
+    document.getElementById('refresh-btn').disabled = false;
+    document.getElementById('stat-interval').textContent = `${state.intervalMin}m`;
+    setStatus('online');
+    runScan().then(() => startCountdown(state.intervalMin * 60));
+  });
+
+  document.getElementById('refresh-btn').addEventListener('click', () => {
+    clearInterval(countdownInterval);
+    runScan().then(() => startCountdown(state.intervalMin * 60));
+  });
+
+  document.getElementById('settings-btn').addEventListener('click', () => {
+    document.getElementById('api-key-input').value = state.apiKey;
+    document.getElementById('interval-select').value = state.intervalMin;
+    document.getElementById('setup-modal').classList.remove('hidden');
+  });
+
+  document.getElementById('filter-chips').addEventListener('click', e => {
+    const chip = e.target.closest('.chip');
+    if (!chip) return;
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    state.activeFilter = chip.dataset.filter;
+    renderFeed();
+  });
+
+  document.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.sortBy = btn.dataset.sort;
+      renderFeed();
+    });
+  });
+
+  document.getElementById('reset-btn').addEventListener('click', () => {
+    if (!confirm('Reset all cached videos and stats? This cannot be undone.')) return;
+    localStorage.removeItem('fundedradar_state');
+    location.reload();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
 </body>
 </html>
