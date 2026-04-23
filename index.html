@@ -424,9 +424,9 @@
 </div>
 
 <script>
-// ────────────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════
 //  AUTO-GENERATED 100 SEARCH QUERIES
-// ────────────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════
 function generateQueryList() {
   const exactQueries = [
     'FREE Funded Trading Account (No Deposit)',
@@ -730,9 +730,8 @@ function updateTicker() {
 
 function renderQueryList() {
   const el = document.getElementById('query-list');
-  const activeIdx = state.currentQueryIndex % ALL_QUERIES.length;
   const firstFive = ALL_QUERIES.slice(0, 5);
-  el.innerHTML = firstFive.map((q, i) => `<div class="query-item ${i===0 ? 'active' : ''}">${q}</div>`).join('');
+  el.innerHTML = firstFive.map((q) => `<div class="query-item">${q}</div>`).join('');
 }
 
 function startCountdown(seconds) {
