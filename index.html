@@ -708,7 +708,6 @@
         color: var(--accent2);
     }
 
-    /* Description reveal on click */
     .card-desc {
         display: none;
         margin-top: 8px;
@@ -892,6 +891,18 @@
         <div class="chip" data-filter="giveaway">Giveaway</div>
       </div>
     </div>
+
+    <!-- Channel filter -->
+    <div class="sidebar-section">
+      <h3>Channel Filter</h3>
+      <div class="input-group" style="margin-bottom:8px">
+        <input type="text" id="channel-filter-input" placeholder="e.g. FTMO, Topstep..." autocomplete="off">
+      </div>
+      <label style="display:flex;align-items:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--muted);">
+        <input type="checkbox" id="latest-per-channel-check"> Show only latest per channel
+      </label>
+    </div>
+
     <div class="sidebar-section">
       <h3>Statistics</h3>
       <div class="stat-row"><span class="stat-label">Videos (last 24h)</span><span class="stat-value" id="stat-count">0</span></div>
@@ -901,10 +912,12 @@
       <div class="stat-row"><span class="stat-label">Last Scan</span><span class="stat-value" id="stat-last">Never</span></div>
       <div class="stat-row"><span class="stat-label">Interval</span><span class="stat-value" id="stat-interval">--</span></div>
     </div>
+
     <div class="sidebar-section">
       <h3>Search Queries</h3>
       <div class="query-list" id="query-list"></div>
     </div>
+
     <div style="margin-top:auto">
       <button class="btn btn-outline" style="width:100%;font-size:10px" id="reset-btn">✕ RESET ALL DATA</button>
     </div>
@@ -960,7 +973,9 @@ let state = {
   lastScan: null,
   activeFilter: 'all',
   sortBy: 'date',
-  currentQueryIndex: 0
+  currentQueryIndex: 0,
+  channelFilterText: '',
+  latestPerChannel: false
 };
 
 let countdownValue = 0;
@@ -985,7 +1000,9 @@ function saveState() {
     scansToday: state.scansToday,
     unitsUsed: state.unitsUsed,
     lastScan: state.lastScan,
-    savedDate: new Date().toDateString()
+    savedDate: new Date().toDateString(),
+    channelFilterText: state.channelFilterText,
+    latestPerChannel: state.latestPerChannel
   };
   localStorage.setItem('fundedradar_state', JSON.stringify(saved));
 }
@@ -1003,6 +1020,12 @@ function loadState() {
       saved.videos = saved.videos.filter(v => isWithinLast24Hours(v.publishedAt));
     }
     Object.assign(state, saved);
+    if (state.channelFilterText) {
+      document.getElementById('channel-filter-input').value = state.channelFilterText;
+    }
+    if (state.latestPerChannel) {
+      document.getElementById('latest-per-channel-check').checked = true;
+    }
   } catch(e) {}
 }
 
@@ -1110,6 +1133,28 @@ async function runScan() {
 
 function getFilteredVideos() {
   let vids = state.videos.filter(v => isWithinLast24Hours(v.publishedAt));
+
+  // Apply channel text filter
+  if (state.channelFilterText) {
+    const filterLower = state.channelFilterText.toLowerCase().trim();
+    if (filterLower) {
+      vids = vids.filter(v => v.channel.toLowerCase().includes(filterLower));
+    }
+  }
+
+  // Apply latest per channel grouping
+  if (state.latestPerChannel) {
+    const channelLatest = new Map();
+    vids.forEach(v => {
+      const existing = channelLatest.get(v.channel);
+      if (!existing || new Date(v.publishedAt) > new Date(existing.publishedAt)) {
+        channelLatest.set(v.channel, v);
+      }
+    });
+    vids = Array.from(channelLatest.values());
+  }
+
+  // Category filter
   if (state.activeFilter !== 'all') {
     const f = state.activeFilter.toLowerCase();
     vids = vids.filter(v => {
@@ -1118,11 +1163,14 @@ function getFilteredVideos() {
       return combined.includes(f) || tagMatch;
     });
   }
+
+  // Sort
   if (state.sortBy === 'views') {
     vids.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
   } else {
     vids.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
   }
+
   return vids;
 }
 
@@ -1130,14 +1178,14 @@ function renderFeed() {
   const grid = document.getElementById('video-grid');
   const vids = getFilteredVideos();
   document.getElementById('result-count').textContent =
-    `${vids.length} videos from last 24 hours  •  ${state.videos.length} total in cache`;
+    `${vids.length} videos shown  •  ${state.videos.filter(v=>isWithinLast24Hours(v.publishedAt)).length} in last 24h cache`;
 
   if (vids.length === 0) {
     grid.innerHTML = `
       <div class="state-box">
         <div class="state-icon">🔍</div>
-        <div class="state-title">NO RECENT RESULTS</div>
-        <div class="state-sub">No videos from the last 24 hours match the current filter. Try "All (24h)" or run a new scan.</div>
+        <div class="state-title">NO MATCHING VIDEOS</div>
+        <div class="state-sub">Try adjusting your channel or content filters.</div>
       </div>`;
     return;
   }
@@ -1381,6 +1429,19 @@ function init() {
     if (!confirm('Reset all cached videos and stats? This cannot be undone.')) return;
     localStorage.removeItem('fundedradar_state');
     location.reload();
+  });
+
+  // Channel filter events
+  document.getElementById('channel-filter-input').addEventListener('input', (e) => {
+    state.channelFilterText = e.target.value;
+    saveState();
+    renderFeed();
+  });
+
+  document.getElementById('latest-per-channel-check').addEventListener('change', (e) => {
+    state.latestPerChannel = e.target.checked;
+    saveState();
+    renderFeed();
   });
 }
 
