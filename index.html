@@ -22,13 +22,7 @@
         --glow: 0 0 18px rgba(0, 229, 192, 0.25);
     }
 
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
         background: var(--bg);
@@ -40,768 +34,245 @@
 
     body::before {
         content: '';
-        position: fixed;
-        inset: 0;
-        background: repeating-linear-gradient(0deg,
-                transparent,
-                transparent 2px,
-                rgba(0, 229, 192, 0.015) 2px,
-                rgba(0, 229, 192, 0.015) 4px);
-        pointer-events: none;
-        z-index: 9999;
+        position: fixed; inset: 0;
+        background: repeating-linear-gradient(0deg, transparent, transparent 2px,
+                rgba(0, 229, 192, 0.015) 2px, rgba(0, 229, 192, 0.015) 4px);
+        pointer-events: none; z-index: 9999;
     }
 
     header {
-        padding: 18px 28px;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 12px;
+        padding: 18px 28px; border-bottom: 1px solid var(--border);
+        display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
         background: linear-gradient(90deg, #050a0e 0%, #071318 100%);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        backdrop-filter: blur(8px);
+        position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px);
     }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-    }
+    .logo { display: flex; align-items: center; gap: 14px; }
 
     .logo-icon {
-        width: 42px;
-        height: 42px;
+        width: 42px; height: 42px;
         background: conic-gradient(from 180deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        box-shadow: var(--glow);
-        animation: spin-glow 4s linear infinite;
+        border-radius: 8px; display: flex; align-items: center; justify-content: center;
+        font-size: 20px; box-shadow: var(--glow); animation: spin-glow 4s linear infinite;
     }
 
-    @keyframes spin-glow {
-        0% { filter: hue-rotate(0deg); }
-        100% { filter: hue-rotate(360deg); }
-    }
+    @keyframes spin-glow { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } }
 
     .logo-text h1 {
-        font-family: 'Orbitron', monospace;
-        font-size: 18px;
-        font-weight: 900;
-        color: var(--accent);
-        letter-spacing: 2px;
-        text-shadow: 0 0 12px rgba(0, 229, 192, 0.5);
+        font-family: 'Orbitron', monospace; font-size: 18px; font-weight: 900;
+        color: var(--accent); letter-spacing: 2px; text-shadow: 0 0 12px rgba(0,229,192,0.5);
     }
 
     .logo-text p {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 10px;
-        color: var(--muted);
-        letter-spacing: 1px;
+        font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 1px;
     }
 
-    .header-right {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-    }
+    .header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 
     .countdown-wrap {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(0, 229, 192, 0.06);
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        padding: 6px 14px;
+        display: flex; align-items: center; gap: 8px;
+        background: rgba(0,229,192,0.06); border: 1px solid var(--border); border-radius: 6px; padding: 6px 14px;
     }
 
     .countdown-wrap .label {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 10px;
-        color: var(--muted);
-        letter-spacing: 1px;
+        font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 1px;
     }
 
     #countdown {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 16px;
-        color: var(--accent);
-        text-shadow: 0 0 8px rgba(0, 229, 192, 0.6);
-        min-width: 48px;
-        text-align: center;
+        font-family: 'Share Tech Mono', monospace; font-size: 16px; color: var(--accent);
+        text-shadow: 0 0 8px rgba(0,229,192,0.6); min-width: 48px; text-align: center;
     }
 
     .status-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--green);
-        box-shadow: 0 0 8px var(--green);
-        animation: blink 1.5s ease-in-out infinite;
+        width: 8px; height: 8px; border-radius: 50%; background: var(--green);
+        box-shadow: 0 0 8px var(--green); animation: blink 1.5s ease-in-out infinite;
     }
 
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.2; }
-    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
 
-    .status-dot.offline {
-        background: var(--red);
-        box-shadow: 0 0 8px var(--red);
-        animation: none;
-    }
+    .status-dot.offline { background: var(--red); box-shadow: 0 0 8px var(--red); animation: none; }
 
     .badge-24h {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 10px;
-        letter-spacing: 1px;
-        background: rgba(0, 229, 192, 0.1);
-        border: 1px solid var(--accent);
-        color: var(--accent);
-        padding: 5px 12px;
-        border-radius: 4px;
-        white-space: nowrap;
-        text-shadow: 0 0 6px rgba(0, 229, 192, 0.4);
+        display: inline-flex; align-items: center; gap: 6px;
+        font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 1px;
+        background: rgba(0,229,192,0.1); border: 1px solid var(--accent); color: var(--accent);
+        padding: 5px 12px; border-radius: 4px; white-space: nowrap; text-shadow: 0 0 6px rgba(0,229,192,0.4);
     }
-
-    .badge-24h::before {
-        content: '';
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--accent);
-        box-shadow: 0 0 6px var(--accent);
-        animation: blink 1.8s ease-in-out infinite;
-    }
+    .badge-24h::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 6px var(--accent); animation: blink 1.8s ease-in-out infinite; }
 
     .btn {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 12px;
-        letter-spacing: 1px;
-        padding: 8px 18px;
-        border-radius: 4px;
-        cursor: pointer;
-        border: none;
-        transition: all 0.2s;
-        text-transform: uppercase;
+        font-family: 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 1px;
+        padding: 8px 18px; border-radius: 4px; cursor: pointer; border: none;
+        transition: all 0.2s; text-transform: uppercase;
     }
 
-    .btn-primary {
-        background: var(--accent);
-        color: #050a0e;
-        font-weight: bold;
-        box-shadow: 0 0 14px rgba(0, 229, 192, 0.3);
-    }
-    .btn-primary:hover {
-        background: #00ffda;
-        box-shadow: 0 0 20px rgba(0, 229, 192, 0.6);
-    }
-    .btn-primary:disabled {
-        opacity: 0.4;
-        cursor: not-allowed;
-    }
+    .btn-primary { background: var(--accent); color: #050a0e; font-weight: bold; box-shadow: 0 0 14px rgba(0,229,192,0.3); }
+    .btn-primary:hover { background: #00ffda; box-shadow: 0 0 20px rgba(0,229,192,0.6); }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 
-    .btn-outline {
-        background: transparent;
-        color: var(--accent);
-        border: 1px solid var(--accent);
-    }
-    .btn-outline:hover {
-        background: rgba(0, 229, 192, 0.08);
-    }
+    .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+    .btn-outline:hover { background: rgba(0,229,192,0.08); }
 
-    .ticker {
-        background: rgba(0, 229, 192, 0.06);
-        border-bottom: 1px solid var(--border);
-        overflow: hidden;
-        padding: 7px 0;
-        white-space: nowrap;
-    }
+    .ticker { background: rgba(0,229,192,0.06); border-bottom: 1px solid var(--border); overflow: hidden; padding: 7px 0; white-space: nowrap; }
+    .ticker-inner { display: inline-flex; gap: 60px; animation: ticker-scroll 40s linear infinite; }
+    @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    .ticker-inner {
-        display: inline-flex;
-        gap: 60px;
-        animation: ticker-scroll 40s linear infinite;
-    }
+    .ticker-item { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+    .ticker-item span { color: var(--accent3); font-weight: bold; }
 
-    @keyframes ticker-scroll {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
-    }
-
-    .ticker-item {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
-        color: var(--muted);
-        letter-spacing: 0.5px;
-    }
-
-    .ticker-item span {
-        color: var(--accent3);
-        font-weight: bold;
-    }
-
-    .modal-overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 1000;
-        background: rgba(5, 10, 14, 0.95);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backdrop-filter: blur(4px);
-    }
-
+    .modal-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(5,10,14,0.95); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
     .modal-overlay.hidden { display: none; }
 
     .modal {
-        background: var(--card);
-        border: 1px solid var(--accent);
-        border-radius: 12px;
-        padding: 36px;
-        max-width: 540px;
-        width: 92%;
-        box-shadow: 0 0 40px rgba(0, 229, 192, 0.15);
+        background: var(--card); border: 1px solid var(--accent); border-radius: 12px;
+        padding: 36px; max-width: 540px; width: 92%; box-shadow: 0 0 40px rgba(0,229,192,0.15);
     }
 
-    .modal h2 {
-        font-family: 'Orbitron', monospace;
-        font-size: 16px;
-        color: var(--accent);
-        letter-spacing: 3px;
-        margin-bottom: 8px;
-    }
-
-    .modal p {
-        font-size: 14px;
-        color: var(--muted);
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-
-    .modal p a {
-        color: var(--accent);
-        text-decoration: none;
-        border-bottom: 1px dashed var(--accent);
-    }
+    .modal h2 { font-family: 'Orbitron', monospace; font-size: 16px; color: var(--accent); letter-spacing: 3px; margin-bottom: 8px; }
+    .modal p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+    .modal p a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); }
     .modal p a:hover { color: #00ffda; }
 
     .steps {
-        background: rgba(0, 229, 192, 0.04);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 16px 20px;
-        margin-bottom: 24px;
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 12px;
-        color: var(--text);
-        line-height: 2;
+        background: rgba(0,229,192,0.04); border: 1px solid var(--border); border-radius: 8px;
+        padding: 16px 20px; margin-bottom: 24px; font-family: 'Share Tech Mono', monospace;
+        font-size: 12px; color: var(--text); line-height: 2;
     }
-
     .steps b { color: var(--accent3); }
 
     .input-group { margin-bottom: 20px; }
-
     .input-group label {
-        display: block;
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
-        color: var(--muted);
-        letter-spacing: 1px;
-        margin-bottom: 8px;
-        text-transform: uppercase;
+        display: block; font-family: 'Share Tech Mono', monospace; font-size: 11px;
+        color: var(--muted); letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase;
     }
-
-    .input-group input,
-    .input-group select {
-        width: 100%;
-        padding: 11px 14px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        color: var(--text);
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 13px;
-        outline: none;
-        transition: border 0.2s;
+    .input-group input, .input-group select {
+        width: 100%; padding: 11px 14px; background: var(--surface);
+        border: 1px solid var(--border); border-radius: 6px; color: var(--text);
+        font-family: 'Share Tech Mono', monospace; font-size: 13px; outline: none; transition: border 0.2s;
     }
-
-    .input-group input:focus,
-    .input-group select:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 2px rgba(0, 229, 192, 0.1);
-    }
+    .input-group input:focus, .input-group select:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(0,229,192,0.1); }
 
     .quota-notice {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
-        color: var(--accent2);
-        padding: 10px 14px;
-        background: rgba(255, 107, 53, 0.08);
-        border: 1px solid rgba(255, 107, 53, 0.3);
-        border-radius: 6px;
-        margin-bottom: 20px;
-        line-height: 1.7;
+        font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--accent2);
+        padding: 10px 14px; background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.3);
+        border-radius: 6px; margin-bottom: 20px; line-height: 1.7;
     }
 
-    .main {
-        display: grid;
-        grid-template-columns: 280px 1fr;
-        min-height: calc(100vh - 130px);
-    }
+    .main { display: grid; grid-template-columns: 280px 1fr; min-height: calc(100vh - 130px); }
 
-    .sidebar {
-        border-right: 1px solid var(--border);
-        padding: 20px 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
+    .sidebar { border-right: 1px solid var(--border); padding: 20px 16px; display: flex; flex-direction: column; gap: 20px; }
     .sidebar-section h3 {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 10px;
-        color: var(--muted);
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+        font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--muted);
+        letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
+        display: flex; align-items: center; gap: 8px;
     }
-
-    .sidebar-section h3::after {
-        content: '';
-        flex: 1;
-        height: 1px;
-        background: var(--border);
-    }
+    .sidebar-section h3::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
     .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-
     .chip {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
-        padding: 4px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        border: 1px solid var(--border);
-        color: var(--muted);
-        transition: all 0.2s;
-        user-select: none;
+        font-family: 'Share Tech Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 4px;
+        cursor: pointer; border: 1px solid var(--border); color: var(--muted); transition: all 0.2s; user-select: none;
     }
+    .chip:hover, .chip.active { border-color: var(--accent); color: var(--accent); background: rgba(0,229,192,0.08); }
 
-    .chip:hover,
-    .chip.active {
-        border-color: var(--accent);
-        color: var(--accent);
-        background: rgba(0, 229, 192, 0.08);
-    }
-
-    .stat-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(26, 58, 68, 0.5);
-    }
-
+    .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(26,58,68,0.5); }
     .stat-row:last-child { border-bottom: none; }
-
-    .stat-label {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
-        color: var(--muted);
-    }
-
-    .stat-value {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 13px;
-        color: var(--accent);
-    }
+    .stat-label { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--muted); }
+    .stat-value { font-family: 'Share Tech Mono', monospace; font-size: 13px; color: var(--accent); }
 
     .query-list { display: flex; flex-direction: column; gap: 8px; }
-
     .query-item {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
-        color: var(--muted);
-        padding: 8px 10px;
-        background: var(--surface);
-        border-radius: 4px;
-        border-left: 2px solid var(--border);
-        transition: all 0.2s;
-        cursor: default;
+        font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--muted);
+        padding: 8px 10px; background: var(--surface); border-radius: 4px;
+        border-left: 2px solid var(--border); transition: all 0.2s; cursor: default;
     }
+    .query-item.active { border-left-color: var(--accent); color: var(--accent); }
 
-    .query-item.active {
-        border-left-color: var(--accent);
-        color: var(--accent);
-    }
+    .feed-area { padding: 20px 24px; display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
+    .feed-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .feed-title { font-family: 'Orbitron', monospace; font-size: 13px; color: var(--text); letter-spacing: 2px; }
+    .result-count { font-family: 'Share Tech Mono', monospace; font-size: 12px; color: var(--muted); }
 
-    .feed-area {
-        padding: 20px 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        overflow: hidden;
-    }
-
-    .feed-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .feed-title {
-        font-family: 'Orbitron', monospace;
-        font-size: 13px;
-        color: var(--text);
-        letter-spacing: 2px;
-    }
-
-    .result-count {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 12px;
-        color: var(--muted);
-    }
-
-    .sort-bar {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
+    .sort-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     .sort-btn {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
-        padding: 4px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        background: transparent;
-        border: 1px solid var(--border);
-        color: var(--muted);
-        transition: all 0.2s;
+        font-family: 'Share Tech Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 4px;
+        cursor: pointer; background: transparent; border: 1px solid var(--border); color: var(--muted); transition: all 0.2s;
     }
+    .sort-btn.active, .sort-btn:hover { border-color: var(--accent3); color: var(--accent3); }
 
-    .sort-btn.active,
-    .sort-btn:hover {
-        border-color: var(--accent3);
-        color: var(--accent3);
-    }
-
-    #video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 16px;
-    }
+    #video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
 
     .video-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        overflow: hidden;
-        cursor: pointer;
-        transition: all 0.25s;
-        position: relative;
-        animation: card-in 0.4s ease both;
+        background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+        cursor: pointer; transition: all 0.25s; position: relative; animation: card-in 0.4s ease both;
     }
-
-    @keyframes card-in {
-        from { opacity: 0; transform: translateY(16px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .video-card:hover {
-        border-color: var(--accent);
-        box-shadow: 0 0 20px rgba(0, 229, 192, 0.1);
-        transform: translateY(-2px);
-    }
-
-    .video-card.playing {
-        border-color: var(--accent);
-        box-shadow: var(--glow);
-    }
+    @keyframes card-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .video-card:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(0,229,192,0.1); transform: translateY(-2px); }
+    .video-card.playing { border-color: var(--accent); box-shadow: var(--glow); }
 
     .badge-new {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 2;
-        background: var(--red);
-        color: white;
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 10px;
-        letter-spacing: 1px;
-        padding: 2px 8px;
-        border-radius: 3px;
-        box-shadow: 0 0 10px rgba(255, 59, 92, 0.5);
+        position: absolute; top: 10px; right: 10px; z-index: 2; background: var(--red); color: white;
+        font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 1px; padding: 2px 8px;
+        border-radius: 3px; box-shadow: 0 0 10px rgba(255,59,92,0.5);
     }
 
-    .thumb-wrap {
-        position: relative;
-        background: #000;
-        aspect-ratio: 16/9;
-        overflow: hidden;
-    }
-
-    .thumb-wrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: opacity 0.2s;
-    }
-
+    .thumb-wrap { position: relative; background: #000; aspect-ratio: 16/9; overflow: hidden; }
+    .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.2s; }
     .thumb-wrap:hover img { opacity: 0.8; }
-
-    .play-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(5, 10, 14, 0.4);
-        opacity: 0;
-        transition: opacity 0.2s;
-    }
-
+    .play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(5,10,14,0.4); opacity: 0; transition: opacity 0.2s; }
     .video-card:hover .play-overlay { opacity: 1; }
+    .play-icon { width: 52px; height: 52px; background: rgba(0,229,192,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(0,229,192,0.6); }
+    .play-icon::after { content: ''; border: 0 solid transparent; border-left: 18px solid #050a0e; border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 4px; }
 
-    .play-icon {
-        width: 52px;
-        height: 52px;
-        background: rgba(0, 229, 192, 0.9);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 20px rgba(0, 229, 192, 0.6);
-    }
-
-    .play-icon::after {
-        content: '';
-        border: 0 solid transparent;
-        border-left: 18px solid #050a0e;
-        border-top: 11px solid transparent;
-        border-bottom: 11px solid transparent;
-        margin-left: 4px;
-    }
-
-    .player-wrap {
-        position: relative;
-        aspect-ratio: 16/9;
-        background: #000;
-        display: none;
-    }
-
-    .player-wrap iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-
+    .player-wrap { position: relative; aspect-ratio: 16/9; background: #000; display: none; }
+    .player-wrap iframe { width: 100%; height: 100%; border: none; }
     .close-player {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        z-index: 5;
-        width: 28px;
-        height: 28px;
-        background: rgba(5, 10, 14, 0.85);
-        border: 1px solid var(--border);
-        border-radius: 50%;
-        cursor: pointer;
-        color: var(--text);
-        font-size: 16px;
-        line-height: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s;
+        position: absolute; top: 8px; right: 8px; z-index: 5; width: 28px; height: 28px;
+        background: rgba(5,10,14,0.85); border: 1px solid var(--border); border-radius: 50%;
+        cursor: pointer; color: var(--text); font-size: 16px; line-height: 1;
+        display: flex; align-items: center; justify-content: center; transition: all 0.2s;
     }
-
-    .close-player:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-    }
+    .close-player:hover { border-color: var(--accent); color: var(--accent); }
 
     .card-body { padding: 14px 14px 12px; }
-
     .card-title {
-        font-family: 'Rajdhani', sans-serif;
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--text);
-        line-height: 1.4;
-        margin-bottom: 8px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; color: var(--text);
+        line-height: 1.4; margin-bottom: 8px; display: -webkit-box;
+        -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
+    .card-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .card-channel { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--accent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 130px; }
+    .card-date, .card-views { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--muted); }
 
-    .card-meta {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-    }
-
-    .card-channel {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
-        color: var(--accent);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 130px;
-    }
-
-    .card-date,
-    .card-views {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 10px;
-        color: var(--muted);
-    }
-
-    .card-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px;
-        margin-bottom: 8px;
-    }
-
-    .tag {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 10px;
-        padding: 2px 7px;
-        border-radius: 3px;
-        background: rgba(0, 229, 192, 0.08);
-        border: 1px solid rgba(0, 229, 192, 0.2);
-        color: var(--accent);
-    }
-
-    .tag.prop {
-        background: rgba(255, 215, 0, 0.08);
-        border-color: rgba(255, 215, 0, 0.3);
-        color: var(--accent3);
-    }
-    .tag.instr {
-        background: rgba(255, 107, 53, 0.08);
-        border-color: rgba(255, 107, 53, 0.3);
-        color: var(--accent2);
-    }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+    .tag { font-family: 'Share Tech Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 3px; background: rgba(0,229,192,0.08); border: 1px solid rgba(0,229,192,0.2); color: var(--accent); }
+    .tag.prop { background: rgba(255,215,0,0.08); border-color: rgba(255,215,0,0.3); color: var(--accent3); }
+    .tag.instr { background: rgba(255,107,53,0.08); border-color: rgba(255,107,53,0.3); color: var(--accent2); }
 
     .card-desc {
-        display: none;
-        margin-top: 8px;
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
-        color: var(--muted);
-        line-height: 1.5;
-        white-space: pre-wrap;
-        word-break: break-word;
-        background: rgba(0, 229, 192, 0.03);
-        border: 1px solid rgba(0, 229, 192, 0.12);
-        padding: 10px 12px;
-        border-radius: 6px;
-        max-height: 120px;
-        overflow-y: auto;
+        display: none; margin-top: 8px; font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--muted);
+        line-height: 1.5; white-space: pre-wrap; word-break: break-word; background: rgba(0,229,192,0.03);
+        border: 1px solid rgba(0,229,192,0.12); padding: 10px 12px; border-radius: 6px; max-height: 120px; overflow-y: auto;
     }
+    .video-card.playing .card-desc { display: block; }
 
-    .video-card.playing .card-desc {
-        display: block;
-    }
-
-    .skeleton {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        overflow: hidden;
-        animation: card-in 0.3s ease both;
-    }
-
-    .skel-thumb {
-        aspect-ratio: 16/9;
-        background: linear-gradient(90deg, var(--surface) 25%, #112028 50%, var(--surface) 75%);
-        background-size: 200% 100%;
-        animation: shimmer 1.5s infinite;
-    }
-
+    .skeleton { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; animation: card-in 0.3s ease both; }
+    .skel-thumb { aspect-ratio: 16/9; background: linear-gradient(90deg, var(--surface) 25%, #112028 50%, var(--surface) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
     .skel-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
-
-    .skel-line {
-        height: 12px;
-        border-radius: 4px;
-        background: linear-gradient(90deg, var(--surface) 25%, #112028 50%, var(--surface) 75%);
-        background-size: 200% 100%;
-        animation: shimmer 1.5s infinite;
-    }
-
+    .skel-line { height: 12px; border-radius: 4px; background: linear-gradient(90deg, var(--surface) 25%, #112028 50%, var(--surface) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
     .skel-line.short { width: 60%; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
-    @keyframes shimmer {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
-    }
-
-    .state-box {
-        grid-column: 1 / -1;
-        text-align: center;
-        padding: 60px 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 14px;
-    }
-
+    .state-box { grid-column: 1 / -1; text-align: center; padding: 60px 20px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
     .state-icon { font-size: 48px; }
-
-    .state-title {
-        font-family: 'Orbitron', monospace;
-        font-size: 15px;
-        color: var(--muted);
-        letter-spacing: 2px;
-    }
-
-    .state-sub {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 12px;
-        color: var(--muted);
-        max-width: 380px;
-        line-height: 1.7;
-    }
+    .state-title { font-family: 'Orbitron', monospace; font-size: 15px; color: var(--muted); letter-spacing: 2px; }
+    .state-sub { font-family: 'Share Tech Mono', monospace; font-size: 12px; color: var(--muted); max-width: 380px; line-height: 1.7; }
 
     .update-bar {
-        padding: 8px 28px;
-        border-top: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: var(--surface);
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 11px;
-        color: var(--muted);
-        flex-wrap: wrap;
-        gap: 8px;
+        padding: 8px 28px; border-top: 1px solid var(--border); display: flex; align-items: center;
+        justify-content: space-between; background: var(--surface); font-family: 'Share Tech Mono', monospace;
+        font-size: 11px; color: var(--muted); flex-wrap: wrap; gap: 8px;
     }
-
     .update-bar span { color: var(--accent); }
 
     ::-webkit-scrollbar { width: 6px; }
@@ -892,7 +363,6 @@
       </div>
     </div>
 
-    <!-- Channel filter -->
     <div class="sidebar-section">
       <h3>Channel Filter</h3>
       <div class="input-group" style="margin-bottom:8px">
@@ -914,8 +384,11 @@
     </div>
 
     <div class="sidebar-section">
-      <h3>Search Queries</h3>
+      <h3>Search Queries 🔁</h3>
       <div class="query-list" id="query-list"></div>
+      <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);padding:4px 8px;">
+        🧠 Auto-generated 100 search phrases
+      </div>
     </div>
 
     <div style="margin-top:auto">
@@ -951,13 +424,63 @@
 </div>
 
 <script>
-const SEARCH_QUERIES = [
-  'free funded account forex 2025',
-  'prop firm free challenge no deposit 2025',
-  'forex funded account giveaway 2025',
-  'free prop firm account instant funding',
-  'no evaluation funded trading account free'
-];
+// ────────────────────────────────────────────────────────────────
+//  AUTO-GENERATED 100 SEARCH QUERIES
+// ────────────────────────────────────────────────────────────────
+function generateQueryList() {
+  const exactQueries = [
+    'FREE Funded Trading Account (No Deposit)',
+    'free funded trading account',
+    'free funded trading account challenge',
+    'FREE $5,000 Prop Firm Instant Funded Trading Account No Challenge No Phase Latest 2026',
+    'FREE $10K Account LIVE Now',
+    'FREE Prop Firm Account for Beginners No KYC No Challenge Required 2026'
+  ];
+
+  const bases = [
+    'free funded trading account',
+    'prop firm free account',
+    'no deposit funded challenge',
+    'instant funded trading account',
+    'free funded account giveaway',
+    'no evaluation prop firm',
+    'funded account no challenge',
+    'free prop firm instant funding',
+    'no KYC funded trading',
+    'funded trading account free',
+    'free funded account 2026',
+    'prop firm no challenge free',
+    'instant funded prop firm account',
+    'funded trading account no deposit',
+    'free prop firm no evaluation'
+  ];
+
+  const additions = [
+    '', ' 2026', ' 2025', ' latest', ' instant', ' no challenge',
+    ' no phase', ' no kyc', ' for beginners', ' zero cost', ' no verification',
+    ' instant funding', ' no deposit', ' free', ' live', ' giveaway'
+  ];
+
+  let set = new Set(exactQueries.map(q => q.trim()));
+
+  bases.forEach(base => {
+    additions.forEach(add => {
+      let q = (base + ' ' + add).trim();
+      if (q) set.add(q);
+    });
+  });
+
+  let arr = Array.from(set);
+  while (arr.length < 100) {
+    let i = Math.floor(Math.random() * bases.length);
+    let j = Math.floor(Math.random() * additions.length);
+    let q = (bases[i] + ' ' + additions[j]).trim();
+    if (!arr.includes(q)) arr.push(q);
+  }
+  return arr.slice(0, 100);
+}
+
+const ALL_QUERIES = generateQueryList();
 
 const PROP_FIRMS = ['ftmo','mff','my forex funds','e8','apex','topstep','funded next','the funded trader',
   'ote','true forex funds','funding pips','audacity capital','3commas','surge trader','bulenox','lux'];
@@ -981,28 +504,17 @@ let state = {
 let countdownValue = 0;
 let countdownInterval = null;
 
-function get24HoursAgo() {
-  const d = new Date();
-  d.setHours(d.getHours() - 24);
-  return d;
-}
+function get24HoursAgo() { const d = new Date(); d.setHours(d.getHours() - 24); return d; }
 function get24HoursAgoISO() { return get24HoursAgo().toISOString(); }
-function isWithinLast24Hours(dateStr) {
-  if (!dateStr) return false;
-  return new Date(dateStr) >= get24HoursAgo();
-}
+function isWithinLast24Hours(dateStr) { if (!dateStr) return false; return new Date(dateStr) >= get24HoursAgo(); }
 
 function saveState() {
   const saved = {
-    apiKey: state.apiKey,
-    intervalMin: state.intervalMin,
-    videos: state.videos.slice(0, 300),
-    scansToday: state.scansToday,
-    unitsUsed: state.unitsUsed,
-    lastScan: state.lastScan,
-    savedDate: new Date().toDateString(),
-    channelFilterText: state.channelFilterText,
-    latestPerChannel: state.latestPerChannel
+    apiKey: state.apiKey, intervalMin: state.intervalMin,
+    videos: state.videos.slice(0, 300), scansToday: state.scansToday,
+    unitsUsed: state.unitsUsed, lastScan: state.lastScan,
+    savedDate: new Date().toDateString(), channelFilterText: state.channelFilterText,
+    latestPerChannel: state.latestPerChannel, currentQueryIndex: state.currentQueryIndex
   };
   localStorage.setItem('fundedradar_state', JSON.stringify(saved));
 }
@@ -1012,39 +524,24 @@ function loadState() {
     const raw = localStorage.getItem('fundedradar_state');
     if (!raw) return;
     const saved = JSON.parse(raw);
-    if (saved.savedDate !== new Date().toDateString()) {
-      saved.scansToday = 0;
-      saved.unitsUsed = 0;
-    }
+    if (saved.savedDate !== new Date().toDateString()) { saved.scansToday = 0; saved.unitsUsed = 0; }
     if (saved.videos && Array.isArray(saved.videos)) {
       saved.videos = saved.videos.filter(v => isWithinLast24Hours(v.publishedAt));
     }
     Object.assign(state, saved);
-    if (state.channelFilterText) {
-      document.getElementById('channel-filter-input').value = state.channelFilterText;
-    }
-    if (state.latestPerChannel) {
-      document.getElementById('latest-per-channel-check').checked = true;
-    }
+    if (state.channelFilterText) document.getElementById('channel-filter-input').value = state.channelFilterText;
+    if (state.latestPerChannel) document.getElementById('latest-per-channel-check').checked = true;
   } catch(e) {}
 }
 
 async function searchYouTube(query) {
   const params = new URLSearchParams({
-    part: 'snippet',
-    q: query,
-    type: 'video',
-    order: 'date',
-    maxResults: 15,
-    relevanceLanguage: 'en',
-    publishedAfter: get24HoursAgoISO(),
+    part: 'snippet', q: query, type: 'video', order: 'date',
+    maxResults: 15, relevanceLanguage: 'en', publishedAfter: get24HoursAgoISO(),
     key: state.apiKey
   });
   const res = await fetch(`https://www.googleapis.com/youtube/v3/search?${params}`);
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error?.message || `API error ${res.status}`);
-  }
+  if (!res.ok) { const err = await res.json(); throw new Error(err.error?.message || `API error ${res.status}`); }
   const data = await res.json();
   return data.items || [];
 }
@@ -1057,36 +554,20 @@ function parseVideo(item) {
   const combined = titleLower + ' ' + descLower;
   const tags = [];
 
-  PROP_FIRMS.forEach(firm => {
-    if (combined.includes(firm)) tags.push({ label: firm.toUpperCase(), type: 'prop' });
-  });
-  INSTRUMENTS.forEach(instr => {
-    if (combined.includes(instr)) tags.push({ label: instr.toUpperCase(), type: 'instr' });
-  });
-  if (combined.includes('no deposit') || combined.includes('no eval'))
-    tags.push({ label: 'NO DEPOSIT', type: '' });
-  if (combined.includes('giveaway'))
-    tags.push({ label: 'GIVEAWAY', type: '' });
-  if (combined.includes('instant fund'))
-    tags.push({ label: 'INSTANT', type: '' });
-  if (combined.includes('challeng'))
-    tags.push({ label: 'CHALLENGE', type: '' });
+  PROP_FIRMS.forEach(firm => { if (combined.includes(firm)) tags.push({ label: firm.toUpperCase(), type: 'prop' }); });
+  INSTRUMENTS.forEach(instr => { if (combined.includes(instr)) tags.push({ label: instr.toUpperCase(), type: 'instr' }); });
+  if (combined.includes('no deposit') || combined.includes('no eval')) tags.push({ label: 'NO DEPOSIT', type: '' });
+  if (combined.includes('giveaway')) tags.push({ label: 'GIVEAWAY', type: '' });
+  if (combined.includes('instant fund')) tags.push({ label: 'INSTANT', type: '' });
+  if (combined.includes('challeng')) tags.push({ label: 'CHALLENGE', type: '' });
 
   const seen = new Set();
-  const uniqueTags = tags.filter(t => {
-    if (seen.has(t.label)) return false;
-    seen.add(t.label); return true;
-  }).slice(0, 5);
+  const uniqueTags = tags.filter(t => { if (seen.has(t.label)) return false; seen.add(t.label); return true; }).slice(0,5);
 
   return {
-    id: item.id.videoId,
-    title,
-    channel: s.channelTitle || 'Unknown',
-    publishedAt: s.publishedAt || '',
-    thumbnail: s.thumbnails?.medium?.url || s.thumbnails?.default?.url || '',
-    description: s.description || '',
-    tags: uniqueTags,
-    isNew: false
+    id: item.id.videoId, title, channel: s.channelTitle || 'Unknown',
+    publishedAt: s.publishedAt || '', thumbnail: s.thumbnails?.medium?.url || s.thumbnails?.default?.url || '',
+    description: s.description || '', tags: uniqueTags, isNew: false
   };
 }
 
@@ -1095,7 +576,7 @@ async function runScan() {
   setStatus('scanning');
   document.getElementById('refresh-btn').disabled = true;
   try {
-    const query = SEARCH_QUERIES[state.currentQueryIndex % SEARCH_QUERIES.length];
+    const query = ALL_QUERIES[state.currentQueryIndex % ALL_QUERIES.length];
     state.currentQueryIndex++;
     showSkeletons();
     const items = await searchYouTube(query);
@@ -1112,9 +593,7 @@ async function runScan() {
     newVideos.forEach(v => v.isNew = true);
     setTimeout(() => newVideos.forEach(v => v.isNew = false), 300000);
 
-    state.videos = [...newVideos, ...state.videos]
-      .filter(v => isWithinLast24Hours(v.publishedAt))
-      .slice(0, 300);
+    state.videos = [...newVideos, ...state.videos].filter(v => isWithinLast24Hours(v.publishedAt)).slice(0, 300);
 
     saveState();
     renderFeed();
@@ -1133,28 +612,18 @@ async function runScan() {
 
 function getFilteredVideos() {
   let vids = state.videos.filter(v => isWithinLast24Hours(v.publishedAt));
-
-  // Apply channel text filter
   if (state.channelFilterText) {
-    const filterLower = state.channelFilterText.toLowerCase().trim();
-    if (filterLower) {
-      vids = vids.filter(v => v.channel.toLowerCase().includes(filterLower));
-    }
+    const f = state.channelFilterText.toLowerCase().trim();
+    if (f) vids = vids.filter(v => v.channel.toLowerCase().includes(f));
   }
-
-  // Apply latest per channel grouping
   if (state.latestPerChannel) {
     const channelLatest = new Map();
     vids.forEach(v => {
-      const existing = channelLatest.get(v.channel);
-      if (!existing || new Date(v.publishedAt) > new Date(existing.publishedAt)) {
-        channelLatest.set(v.channel, v);
-      }
+      const exist = channelLatest.get(v.channel);
+      if (!exist || new Date(v.publishedAt) > new Date(exist.publishedAt)) channelLatest.set(v.channel, v);
     });
     vids = Array.from(channelLatest.values());
   }
-
-  // Category filter
   if (state.activeFilter !== 'all') {
     const f = state.activeFilter.toLowerCase();
     vids = vids.filter(v => {
@@ -1163,71 +632,44 @@ function getFilteredVideos() {
       return combined.includes(f) || tagMatch;
     });
   }
-
-  // Sort
-  if (state.sortBy === 'views') {
-    vids.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
-  } else {
-    vids.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
-  }
-
+  if (state.sortBy === 'views') vids.sort((a,b) => (b.isNew?1:0) - (a.isNew?1:0));
+  else vids.sort((a,b) => new Date(b.publishedAt) - new Date(a.publishedAt));
   return vids;
 }
 
 function renderFeed() {
   const grid = document.getElementById('video-grid');
   const vids = getFilteredVideos();
-  document.getElementById('result-count').textContent =
-    `${vids.length} videos shown  •  ${state.videos.filter(v=>isWithinLast24Hours(v.publishedAt)).length} in last 24h cache`;
+  const active24 = state.videos.filter(v=>isWithinLast24Hours(v.publishedAt)).length;
+  document.getElementById('result-count').textContent = `${vids.length} videos shown  •  ${active24} in last 24h cache`;
 
   if (vids.length === 0) {
-    grid.innerHTML = `
-      <div class="state-box">
-        <div class="state-icon">🔍</div>
-        <div class="state-title">NO MATCHING VIDEOS</div>
-        <div class="state-sub">Try adjusting your channel or content filters.</div>
-      </div>`;
+    grid.innerHTML = `<div class="state-box"><div class="state-icon">🔍</div><div class="state-title">NO MATCHING VIDEOS</div><div class="state-sub">Try adjusting your channel or content filters.</div></div>`;
     return;
   }
 
   grid.innerHTML = vids.map((v, i) => videoCardHTML(v, i)).join('');
-
-  grid.querySelectorAll('.thumb-wrap').forEach(el => {
-    el.addEventListener('click', () => togglePlayer(el.dataset.id));
-  });
-  grid.querySelectorAll('.close-player').forEach(el => {
-    el.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closePlayer(el.dataset.id);
-    });
-  });
+  grid.querySelectorAll('.thumb-wrap').forEach(el => el.addEventListener('click', () => togglePlayer(el.dataset.id)));
+  grid.querySelectorAll('.close-player').forEach(el => el.addEventListener('click', (e) => { e.stopPropagation(); closePlayer(el.dataset.id); }));
 }
 
 function videoCardHTML(v, i) {
   const age = v.publishedAt ? timeAgo(v.publishedAt) : '';
-  const tagsHTML = v.tags.map(t =>
-    `<span class="tag ${t.type}">${t.label}</span>`
-  ).join('');
-
+  const tagsHTML = v.tags.map(t => `<span class="tag ${t.type}">${t.label}</span>`).join('');
   return `
-  <div class="video-card ${v.isNew ? 'new' : ''}" style="animation-delay:${i*40}ms" id="card-${v.id}">
+  <div class="video-card ${v.isNew?'new':''}" style="animation-delay:${i*40}ms" id="card-${v.id}">
     ${v.isNew ? '<div class="badge-new">NEW</div>' : ''}
     <div class="thumb-wrap" data-id="${v.id}">
       <img src="${v.thumbnail}" alt="${escHtml(v.title)}" loading="lazy">
       <div class="play-overlay"><div class="play-icon"></div></div>
     </div>
     <div class="player-wrap" id="player-${v.id}">
-      <iframe src="" title="${escHtml(v.title)}"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+      <iframe src="" title="${escHtml(v.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <div class="close-player" data-id="${v.id}" title="Close player">✕</div>
     </div>
     <div class="card-body">
       <div class="card-title">${escHtml(v.title)}</div>
-      <div class="card-meta">
-        <span class="card-channel">${escHtml(v.channel)}</span>
-        ${age ? `<span class="card-date">${age}</span>` : ''}
-      </div>
+      <div class="card-meta"><span class="card-channel">${escHtml(v.channel)}</span>${age?`<span class="card-date">${age}</span>`:''}</div>
       <div class="card-tags">${tagsHTML}</div>
       <div class="card-desc">${escHtml(v.description) || 'No description available.'}</div>
     </div>
@@ -1238,16 +680,8 @@ function togglePlayer(videoId) {
   const playerWrap = document.getElementById(`player-${videoId}`);
   const card = document.getElementById(`card-${videoId}`);
   const thumbWrap = card.querySelector('.thumb-wrap');
-  if (playerWrap.style.display === 'block') {
-    closePlayer(videoId);
-    return;
-  }
-  document.querySelectorAll('.player-wrap').forEach(p => {
-    if (p.id !== `player-${videoId}` && p.style.display === 'block') {
-      const id = p.id.replace('player-', '');
-      closePlayer(id);
-    }
-  });
+  if (playerWrap.style.display === 'block') { closePlayer(videoId); return; }
+  document.querySelectorAll('.player-wrap').forEach(p => { if (p.style.display === 'block' && p.id !== `player-${videoId}`) closePlayer(p.id.replace('player-','')); });
   const iframe = playerWrap.querySelector('iframe');
   iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
   thumbWrap.style.display = 'none';
@@ -1259,8 +693,7 @@ function closePlayer(videoId) {
   const playerWrap = document.getElementById(`player-${videoId}`);
   const card = document.getElementById(`card-${videoId}`);
   if (!playerWrap) return;
-  const iframe = playerWrap.querySelector('iframe');
-  iframe.src = '';
+  playerWrap.querySelector('iframe').src = '';
   playerWrap.style.display = 'none';
   card.querySelector('.thumb-wrap').style.display = 'block';
   card.classList.remove('playing');
@@ -1268,57 +701,38 @@ function closePlayer(videoId) {
 
 function showSkeletons() {
   document.getElementById('video-grid').innerHTML = Array(6).fill(0).map(() => `
-    <div class="skeleton">
-      <div class="skel-thumb"></div>
-      <div class="skel-body">
-        <div class="skel-line"></div>
-        <div class="skel-line short"></div>
-        <div class="skel-line short" style="width:40%"></div>
-      </div>
-    </div>`).join('');
+    <div class="skeleton"><div class="skel-thumb"></div><div class="skel-body"><div class="skel-line"></div><div class="skel-line short"></div><div class="skel-line short" style="width:40%"></div></div></div>`).join('');
 }
 
 function showError(msg) {
-  document.getElementById('video-grid').innerHTML = `
-    <div class="state-box">
-      <div class="state-icon">⚠️</div>
-      <div class="state-title">SCAN FAILED</div>
-      <div class="state-sub">${escHtml(msg)}<br><br>Check your API key or daily quota at console.cloud.google.com</div>
-    </div>`;
+  document.getElementById('video-grid').innerHTML = `<div class="state-box"><div class="state-icon">⚠️</div><div class="state-title">SCAN FAILED</div><div class="state-sub">${escHtml(msg)}</div></div>`;
 }
 
 function updateStats() {
-  const last24hCount = state.videos.filter(v => isWithinLast24Hours(v.publishedAt)).length;
-  document.getElementById('stat-count').textContent = last24hCount;
+  const recent = state.videos.filter(v => isWithinLast24Hours(v.publishedAt)).length;
+  document.getElementById('stat-count').textContent = recent;
   document.getElementById('stat-cached').textContent = state.videos.length;
   document.getElementById('stat-scans').textContent = state.scansToday;
   document.getElementById('stat-units').textContent = state.unitsUsed.toLocaleString();
-  document.getElementById('stat-last').textContent = state.lastScan
-    ? new Date(state.lastScan).toLocaleTimeString('en-US', {hour12: true, hour:'2-digit', minute:'2-digit'})
-    : 'Never';
+  document.getElementById('stat-last').textContent = state.lastScan ? new Date(state.lastScan).toLocaleTimeString('en-US',{hour12:true,hour:'2-digit',minute:'2-digit'}) : 'Never';
   document.getElementById('stat-interval').textContent = `${state.intervalMin}m`;
   document.getElementById('quota-bar').textContent = `${state.unitsUsed.toLocaleString()} / 10,000 units`;
 }
 
-function setStatus(s) {
-  const dot = document.getElementById('status-dot');
-  dot.className = 'status-dot' + (s === 'offline' ? ' offline' : '');
-}
+function setStatus(s) { const dot = document.getElementById('status-dot'); dot.className = 'status-dot' + (s==='offline'?' offline':''); }
 
 function updateTicker() {
-  const recentVids = state.videos.filter(v => isWithinLast24Hours(v.publishedAt)).slice(0, 20);
-  if (recentVids.length === 0) return;
-  const html = [...recentVids, ...recentVids].map(v =>
-    `<span class="ticker-item">📡 <span>${escHtml(v.channel)}</span> — ${escHtml(v.title.substring(0,55))}${v.title.length>55?'…':''}</span>`
-  ).join('');
+  const recent = state.videos.filter(v => isWithinLast24Hours(v.publishedAt)).slice(0,20);
+  if (recent.length===0) return;
+  const html = [...recent, ...recent].map(v => `<span class="ticker-item">📡 <span>${escHtml(v.channel)}</span> — ${escHtml(v.title.substring(0,55))}${v.title.length>55?'…':''}</span>`).join('');
   document.getElementById('ticker-inner').innerHTML = html;
 }
 
 function renderQueryList() {
   const el = document.getElementById('query-list');
-  el.innerHTML = SEARCH_QUERIES.map((q,i) =>
-    `<div class="query-item ${i === (state.currentQueryIndex % SEARCH_QUERIES.length) ? 'active' : ''}" title="${q}">${q}</div>`
-  ).join('');
+  const activeIdx = state.currentQueryIndex % ALL_QUERIES.length;
+  const firstFive = ALL_QUERIES.slice(0, 5);
+  el.innerHTML = firstFive.map((q, i) => `<div class="query-item ${i===0 ? 'active' : ''}">${q}</div>`).join('');
 }
 
 function startCountdown(seconds) {
@@ -1327,39 +741,27 @@ function startCountdown(seconds) {
   const el = document.getElementById('countdown');
   countdownInterval = setInterval(() => {
     countdownValue--;
-    if (countdownValue <= 0) {
-      clearInterval(countdownInterval);
-      runScan().then(() => startCountdown(state.intervalMin * 60));
-      return;
-    }
-    const m = String(Math.floor(countdownValue / 60)).padStart(2, '0');
-    const s = String(countdownValue % 60).padStart(2, '0');
+    if (countdownValue <= 0) { clearInterval(countdownInterval); runScan().then(() => startCountdown(state.intervalMin * 60)); return; }
+    const m = String(Math.floor(countdownValue/60)).padStart(2,'0'), s = String(countdownValue%60).padStart(2,'0');
     el.textContent = `${m}:${s}`;
   }, 1000);
-  const m = String(Math.floor(countdownValue / 60)).padStart(2, '0');
-  const s = String(countdownValue % 60).padStart(2, '0');
+  const m = String(Math.floor(countdownValue/60)).padStart(2,'0'), s = String(countdownValue%60).padStart(2,'0');
   el.textContent = `${m}:${s}`;
 }
 
-function escHtml(str) {
-  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
+function escHtml(str) { return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function timeAgo(dateStr) {
   const diff = Date.now() - new Date(dateStr).getTime();
-  const min = Math.floor(diff / 60000);
-  if (min < 60) return `${min}m ago`;
-  const hr = Math.floor(min / 60);
-  if (hr < 24) return `${hr}h ago`;
-  const d = Math.floor(hr / 24);
-  return `${d}d ago`;
+  const min = Math.floor(diff/60000);
+  if (min<60) return `${min}m ago`;
+  const hr = Math.floor(min/60);
+  if (hr<24) return `${hr}h ago`;
+  return `${Math.floor(hr/24)}d ago`;
 }
 
 function init() {
   loadState();
-  document.getElementById('ticker-inner').innerHTML = Array(2).fill(0).map(() =>
-    SEARCH_QUERIES.map(q => `<span class="ticker-item">🔍 Searching last 24h: <span>${q}</span></span>`).join('')
-  ).join('');
+  document.getElementById('ticker-inner').innerHTML = Array(2).fill(0).map(() => ALL_QUERIES.slice(0,3).map(q => `<span class="ticker-item">🔍 Searching: <span>${q}</span></span>`).join('')).join('');
   renderQueryList();
   updateStats();
 
@@ -1367,45 +769,28 @@ function init() {
     document.getElementById('setup-modal').classList.add('hidden');
     document.getElementById('refresh-btn').disabled = false;
     document.getElementById('stat-interval').textContent = `${state.intervalMin}m`;
-    if (state.videos.length > 0) {
-      renderFeed();
-      updateTicker();
-    }
-    let elapsed = state.lastScan
-      ? Math.floor((Date.now() - new Date(state.lastScan)) / 1000)
-      : state.intervalMin * 60;
-    let remaining = Math.max(10, state.intervalMin * 60 - elapsed);
-    if (elapsed >= state.intervalMin * 60) {
-      runScan().then(() => startCountdown(state.intervalMin * 60));
-    } else {
-      startCountdown(remaining);
-    }
+    if (state.videos.length>0) { renderFeed(); updateTicker(); }
+    let elapsed = state.lastScan ? Math.floor((Date.now() - new Date(state.lastScan))/1000) : state.intervalMin*60;
+    let remaining = Math.max(10, state.intervalMin*60 - elapsed);
+    if (elapsed >= state.intervalMin*60) runScan().then(() => startCountdown(state.intervalMin*60));
+    else startCountdown(remaining);
     setStatus('online');
   }
 
   document.getElementById('start-btn').addEventListener('click', () => {
     const key = document.getElementById('api-key-input').value.trim();
     if (!key) { alert('Please enter your YouTube API key'); return; }
-    state.apiKey = key;
-    state.intervalMin = parseInt(document.getElementById('interval-select').value);
+    state.apiKey = key; state.intervalMin = parseInt(document.getElementById('interval-select').value);
     saveState();
     document.getElementById('setup-modal').classList.add('hidden');
     document.getElementById('refresh-btn').disabled = false;
     document.getElementById('stat-interval').textContent = `${state.intervalMin}m`;
     setStatus('online');
-    runScan().then(() => startCountdown(state.intervalMin * 60));
+    runScan().then(() => startCountdown(state.intervalMin*60));
   });
 
-  document.getElementById('refresh-btn').addEventListener('click', () => {
-    clearInterval(countdownInterval);
-    runScan().then(() => startCountdown(state.intervalMin * 60));
-  });
-
-  document.getElementById('settings-btn').addEventListener('click', () => {
-    document.getElementById('api-key-input').value = state.apiKey;
-    document.getElementById('interval-select').value = state.intervalMin;
-    document.getElementById('setup-modal').classList.remove('hidden');
-  });
+  document.getElementById('refresh-btn').addEventListener('click', () => { clearInterval(countdownInterval); runScan().then(() => startCountdown(state.intervalMin*60)); });
+  document.getElementById('settings-btn').addEventListener('click', () => { document.getElementById('api-key-input').value = state.apiKey; document.getElementById('interval-select').value = state.intervalMin; document.getElementById('setup-modal').classList.remove('hidden'); });
 
   document.getElementById('filter-chips').addEventListener('click', e => {
     const chip = e.target.closest('.chip');
@@ -1416,33 +801,17 @@ function init() {
     renderFeed();
   });
 
-  document.querySelectorAll('.sort-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      state.sortBy = btn.dataset.sort;
-      renderFeed();
-    });
-  });
-
-  document.getElementById('reset-btn').addEventListener('click', () => {
-    if (!confirm('Reset all cached videos and stats? This cannot be undone.')) return;
-    localStorage.removeItem('fundedradar_state');
-    location.reload();
-  });
-
-  // Channel filter events
-  document.getElementById('channel-filter-input').addEventListener('input', (e) => {
-    state.channelFilterText = e.target.value;
-    saveState();
+  document.querySelectorAll('.sort-btn').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.sortBy = btn.dataset.sort;
     renderFeed();
-  });
+  }));
 
-  document.getElementById('latest-per-channel-check').addEventListener('change', (e) => {
-    state.latestPerChannel = e.target.checked;
-    saveState();
-    renderFeed();
-  });
+  document.getElementById('reset-btn').addEventListener('click', () => { if (!confirm('Reset all data?')) return; localStorage.removeItem('fundedradar_state'); location.reload(); });
+
+  document.getElementById('channel-filter-input').addEventListener('input', e => { state.channelFilterText = e.target.value; saveState(); renderFeed(); });
+  document.getElementById('latest-per-channel-check').addEventListener('change', e => { state.latestPerChannel = e.target.checked; saveState(); renderFeed(); });
 }
 
 document.addEventListener('DOMContentLoaded', init);
