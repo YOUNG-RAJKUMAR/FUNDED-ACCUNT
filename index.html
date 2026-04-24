@@ -814,6 +814,28 @@ function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// Add export button
+const exportBtn = document.createElement('button');
+exportBtn.className = 'btn btn-outline';
+exportBtn.style.cssText = 'font-size:10px; margin-left:auto;';
+exportBtn.textContent = '📋 EXPORT ALL DESCS';
+exportBtn.addEventListener('click', () => {
+  const vids = getFilteredVideos(); // or use state.videos for all cached
+  if (vids.length === 0) {
+    alert('No videos to export.');
+    return;
+  }
+  const text = vids.map(v => 
+    `TITLE: ${v.title}\nCHANNEL: ${v.channel}\nPUBLISHED: ${v.publishedAt}\nDESCRIPTION:\n${v.description}\n---`
+  ).join('\n\n');
+  
+  navigator.clipboard.writeText(text)
+    .then(() => alert('✅ Copied all video descriptions!'))
+    .catch(() => alert('❌ Failed to copy. Try again.'));
+});
+document.querySelector('.sort-bar')?.appendChild(exportBtn);
+    
 </script>
 </body>
 </html>
